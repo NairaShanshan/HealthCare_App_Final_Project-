@@ -15,7 +15,7 @@ class OnBoardingItem extends StatelessWidget {
       children: [
         Image.asset(
           model.image , fit: BoxFit.cover,),
-        const Gap(20),
+        const Gap(10),
         Align(
           alignment: Alignment.bottomCenter,
           child: Text(

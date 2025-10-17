@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:healthcare_app/core/routes/navigation.dart';
+import 'package:healthcare_app/core/routes/routes.dart';
 import 'dart:async'; // For Timer
 
 import '../onboarding/onboarding_screen.dart';
@@ -16,10 +18,11 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Timer(const Duration(seconds: 5), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const OnBoardingScreen()),
-      );
+      // Navigator.pushReplacement(
+      //   context,
+      //   MaterialPageRoute(builder: (context) => const OnBoardingScreen()),
+      // );
+      pushReplacement(context, Routes.onboarding) ;
     });
   }
 
