@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healthcare_app/features/onboarding/onboarding_screen.dart';
+import 'package:healthcare_app/features/splash/splash_screen.dart';
 
 import 'core/services/local/shared_pref.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: OnBoardingScreen(),
+      home: SplashScreen(),
     );
   }
 }
