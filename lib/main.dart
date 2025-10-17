@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:healthcare_app/core/routes/routes.dart';
+import 'package:healthcare_app/core/utils/app_colors.dart';
 import 'package:healthcare_app/core/utils/app_fonts.dart';
-import 'package:healthcare_app/features/onboarding/onboarding_screen.dart';
-import 'package:healthcare_app/features/splash/splash_screen.dart';
+import 'package:healthcare_app/core/utils/functions.dart';
+import 'package:healthcare_app/core/utils/text_styles.dart';
+
 
 import 'core/services/local/shared_pref.dart';
 
@@ -17,9 +19,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: Routes.routes,
+      routerConfig:Routes.routes ,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: AppFonts.Poppins),
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
+        fontFamily: AppFonts.poppins,
+        inputDecorationTheme: InputDecorationTheme(
+          fillColor: AppColors.accentColor,
+          filled: true,
+          hintStyle: TextStyles.textStyles15.copyWith(
+            color: AppColors.greyColor,
+          ),
+          enabledBorder: buildBorder(),
+          focusedBorder: buildBorder(),
+          errorBorder: buildBorder(borderColor: AppColors.errorColor),
+          focusedErrorBorder: buildBorder(borderColor: AppColors.errorColor),
+        ),
+      ),
     );
   }
 }

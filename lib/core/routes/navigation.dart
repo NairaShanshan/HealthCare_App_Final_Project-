@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-pushTO(BuildContext context, String path) {
+pushTo(BuildContext context, String path) {
   context.push(path);
 }
 
