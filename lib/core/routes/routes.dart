@@ -6,17 +6,17 @@ import 'package:healthcare_app/features/splash/splash_screen.dart';
 import 'package:healthcare_app/features/welcome/welcome_screen.dart';
 
 class Routes {
-  // static const String splash = '/';
-  static const String onboarding = '/';
+  static const String splash = '/';
+  static const String onboarding = '/onboarding';
 
   static const String welcome = '/welcome';
   static const String login = '/login';
   static const String register = '/register';
 
   static final routes = GoRouter(
-    initialLocation: onboarding,
+    initialLocation: splash,
     routes: [
-      // GoRoute(path: splash, builder: (context, state) => const SplashScreen()),
+      GoRoute(path: splash, builder: (context, state) => const SplashScreen()),
       GoRoute(
         path: onboarding,
         builder: (context, state) => const OnBoardingScreen(),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:healthcare_app/core/routes/routes.dart';
+import 'package:healthcare_app/core/utils/app_fonts.dart';
 import 'package:healthcare_app/features/onboarding/onboarding_screen.dart';
 import 'package:healthcare_app/features/splash/splash_screen.dart';
 
@@ -14,9 +16,10 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: Routes.routes,
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      theme: ThemeData(fontFamily: AppFonts.Poppins),
     );
   }
 }
