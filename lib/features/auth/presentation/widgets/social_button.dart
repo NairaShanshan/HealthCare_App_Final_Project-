@@ -32,10 +32,10 @@ class SocialButton extends StatelessWidget {
             children: [
               Expanded(
                 child: Stack(
-                  alignment: AlignmentGeometry.center,
+                  alignment: Alignment.center,
                   children: [
                     Align(
-                      alignment: AlignmentGeometry.centerLeft,
+                      alignment: Alignment.centerLeft,
                       child: SvgPicture.asset(image),
                     ),
                     Text(label,

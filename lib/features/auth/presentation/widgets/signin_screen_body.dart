@@ -123,7 +123,7 @@ class _SigninScreenBodyState extends State<SigninScreenBody> {
 
   Align _forgetPassword() {
     return Align(
-      alignment: AlignmentGeometry.centerRight,
+      alignment: Alignment.centerRight,
       child: TextButton(
         onPressed: () {},
         child: const Text(

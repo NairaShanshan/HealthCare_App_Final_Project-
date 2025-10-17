@@ -166,8 +166,8 @@ class _PrivacyPolicyCheckboxState extends State<PrivacyPolicyCheckbox> {
           child: Checkbox(
             value: isChecked,
             fillColor: isChecked
-                ? WidgetStateProperty.all(AppColors.primaryColor)
-                : WidgetStateProperty.all(Colors.white),
+                ? MaterialStateProperty.all(AppColors.primaryColor)
+                : MaterialStateProperty.all(Colors.white),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(6),
             ),
