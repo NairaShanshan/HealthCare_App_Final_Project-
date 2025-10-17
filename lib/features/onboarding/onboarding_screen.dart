@@ -6,8 +6,6 @@ import 'package:healthcare_app/core/utils/text_styles.dart';
 import 'package:healthcare_app/features/onboarding/widget/onboarding_item.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-
-
 class OnBoardingModel {
   final String image;
   final String title;
@@ -47,7 +45,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   //   });
   // }
 
-  void submit () {
+  void submit() {
     if (isLastBoarding == true) {
       //       // loginScreen
     }
@@ -66,8 +64,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 alignment: Alignment.topRight,
                 child: TextButton(
                     onPressed: () {
-                      submit() ;
-
+                      submit();
                     },
                     child: Text(
                       'Skip',
@@ -125,7 +122,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     ),
                   ),
                 ],
-              ) ,
+              ),
             ],
           ),
         ),

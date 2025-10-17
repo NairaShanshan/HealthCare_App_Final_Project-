@@ -26,7 +26,7 @@ class WelcomeScreen extends StatelessWidget {
             Gap(8),
             Text(
               "Healthcare",
-              style: TextStyles.textStyle25.copyWith(
+              style: TextStyles.textStyles25.copyWith(
                 color: AppColors.darkBluecolor,
                 fontWeight: FontWeight.w600,
               ),
@@ -34,20 +34,20 @@ class WelcomeScreen extends StatelessWidget {
             Gap(10),
             Text(
               "Let’s get started!",
-              style: TextStyles.textStyle22.copyWith(
+              style: TextStyles.textStyles22.copyWith(
                 fontWeight: FontWeight.bold,
               ),
             ),
             Text(
               "Login to Stay healthy and fit ",
-              style: TextStyles.textStyle16.copyWith(
-                color: AppColors.greycolor,
+              style: TextStyles.textStyles16.copyWith(
+                color: AppColors.greyColor,
               ),
             ),
             Gap(50),
             MainButton(
               text: "Login",
-              bgcolor: AppColors.primarycolor,
+              bgcolor: AppColors.primaryColor,
               onPressed: () {
                 pushTO(context, Routes.login);
               },
@@ -60,7 +60,7 @@ class WelcomeScreen extends StatelessWidget {
               },
               borderColor: AppColors.bordercolor,
               bgcolor: AppColors.backgroundcolor,
-              textColor: AppColors.primarycolor,
+              textColor: AppColors.primaryColor,
             ),
           ],
         ),

@@ -10,7 +10,7 @@ class MainButton extends StatelessWidget {
     this.width = 250,
     this.height = 56,
     this.borderColor,
-    this.bgcolor = AppColors.primarycolor,
+    this.bgcolor = AppColors.primaryColor,
     this.textColor = AppColors.backgroundcolor,
   });
 
@@ -39,7 +39,7 @@ class MainButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           text,
-          style: TextStyles.textStyle16.copyWith(color: textColor),
+          style: TextStyles.textStyles16.copyWith(color: textColor),
         ),
       ),
     );
