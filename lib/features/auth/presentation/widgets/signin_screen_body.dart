@@ -147,7 +147,7 @@ class LoginMethodsDividerView extends StatelessWidget {
     return const Row(
       children: [
         Expanded(
-          child: Divider(color: AppColors.bordercolor, height: 1),
+          child: Divider(color: AppColors.borderColor, height: 1),
         ),
         SizedBox(width: 16),
         Text(
@@ -160,7 +160,7 @@ class LoginMethodsDividerView extends StatelessWidget {
         ),
         SizedBox(width: 16),
         Expanded(
-          child: Divider(color: AppColors.bordercolor, height: 1),
+          child: Divider(color: AppColors.borderColor, height: 1),
         ),
       ],
     );

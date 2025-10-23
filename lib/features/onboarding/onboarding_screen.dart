@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:healthcare_app/core/constants/app_images.dart';
 import 'package:healthcare_app/core/routes/navigation.dart';
 import 'package:healthcare_app/core/routes/routes.dart';
 import 'package:healthcare_app/core/utils/app_colors.dart';
@@ -8,15 +7,9 @@ import 'package:healthcare_app/core/utils/text_styles.dart';
 import 'package:healthcare_app/features/onboarding/widget/onboarding_item.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class OnBoardingModel {
-  final String image;
-  final String title;
+import 'model/onboarding_model.dart';
 
-  OnBoardingModel({
-    required this.image,
-    required this.title,
-  });
-}
+
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -28,14 +21,7 @@ class OnBoardingScreen extends StatefulWidget {
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   final pageViewController = PageController();
 
-  final List<OnBoardingModel> onboarding = [
-    OnBoardingModel(
-        image: AppImages.onboarding1,
-        title: 'Find a lot of specialist doctors in one place. '),
-    OnBoardingModel(
-        image: AppImages.onboarding2,
-        title: 'Get advice only from a doctor you believe in. '),
-  ];
+
 
   bool isLastBoarding = false;
 
@@ -63,7 +49,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         actions: [
           TextButton(
               onPressed: () {
-                submit();
+                //submit();
+                pushReplacement(context, Routes.profile) ;
               },
               child: Text(
                 'Skip',
