@@ -49,14 +49,14 @@ class WelcomeScreen extends StatelessWidget {
               text: "Login",
               bgcolor: AppColors.primaryColor,
               onPressed: () {
-                pushTo(context, Routes.signin);
+                pushTo(context:  context,path:  Routes.signin);
               },
             ),
             Gap(15),
             MainButton(
               text: "Sign Up",
               onPressed: () {
-                pushTo(context, Routes.signup);
+                pushTo(context:  context,path:  Routes.signup);
               },
               borderColor: AppColors.bordercolor,
               bgcolor: AppColors.backgroundcolor,
