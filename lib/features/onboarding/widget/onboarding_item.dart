@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:healthcare_app/features/onboarding/onboarding_screen.dart';
+
 
 import '../../../core/utils/text_styles.dart';
+import '../model/onboarding_model.dart';
 
 class OnBoardingItem extends StatelessWidget {
   const OnBoardingItem({super.key, required this.model});

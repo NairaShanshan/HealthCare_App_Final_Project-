@@ -1,7 +1,9 @@
 class AppImages {
   static const String onboarding1 = 'assets/images/onboarding1.png';
   static const String onboarding2 = 'assets/images/onboarding2.png';
+  static const String userImage = 'assets/images/user_image.png';
   static const String logoSvg = "assets/icons/logo.svg";
+  static const String cameraIconSvg = 'assets/icons/camera.svg';
   static const String backIconSvg = 'assets/images/back_icon.svg';
   static const String emailIconSvg = 'assets/images/email_icon.svg';
   static const String passwordIconSvg = 'assets/images/password_icon.svg';

@@ -14,7 +14,7 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.backgroundcolor,
+      backgroundColor: AppColors.backgroundColor,
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -27,7 +27,7 @@ class WelcomeScreen extends StatelessWidget {
             Text(
               "Healthcare",
               style: TextStyles.textStyles25.copyWith(
-                color: AppColors.darkBluecolor,
+                color: AppColors.darkBlueColor,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -58,8 +58,8 @@ class WelcomeScreen extends StatelessWidget {
               onPressed: () {
                 pushTo(context:  context,path:  Routes.signup);
               },
-              borderColor: AppColors.bordercolor,
-              bgcolor: AppColors.backgroundcolor,
+              borderColor: AppColors.borderColor,
+              bgcolor: AppColors.backgroundColor,
               textColor: AppColors.primaryColor,
             ),
           ],
