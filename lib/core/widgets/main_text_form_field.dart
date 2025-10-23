@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../utils/app_colors.dart';
+import '../utils/functions.dart';
+
 class MainTextFormField extends StatelessWidget {
   const MainTextFormField({
     super.key,
@@ -9,7 +12,7 @@ class MainTextFormField extends StatelessWidget {
     this.prefixIcon,
     this.onSaved,
     this.isPassword = false,
-    this.validator,
+    this.validator, this.borderColor, this.suffixIconColor,
   });
   final String hintText;
   final TextInputType textInputType;
@@ -18,6 +21,8 @@ class MainTextFormField extends StatelessWidget {
   final void Function(String?)? onSaved;
   final bool isPassword;
   final String? Function(String?)? validator;
+  final Color? borderColor;
+  final Color? suffixIconColor;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -28,10 +33,10 @@ class MainTextFormField extends StatelessWidget {
       decoration: InputDecoration(
         hintText: hintText,
         suffixIcon: suffixIcon,
-        prefixIcon: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: prefixIcon,
-        ),
+        suffixIconColor: suffixIconColor,
+        prefixIcon: prefixIcon,
+        enabledBorder: buildBorder(borderColor: borderColor ?? AppColors.borderColor),
+        focusedBorder: buildBorder(borderColor: borderColor ?? AppColors.borderColor),
       ),
     );
   }

@@ -11,7 +11,7 @@ class MainButton extends StatelessWidget {
     this.height = 56,
     this.borderColor,
     this.bgcolor = AppColors.primaryColor,
-    this.textColor = AppColors.backgroundcolor,
+    this.textColor = AppColors.backgroundColor,
   });
 
   final String text;
@@ -30,7 +30,7 @@ class MainButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           side: BorderSide(
             color:
-                borderColor != null ? AppColors.darkcolor : Colors.transparent,
+                borderColor != null ? AppColors.darkColor : Colors.transparent,
           ),
           backgroundColor: bgcolor,
           shape:
