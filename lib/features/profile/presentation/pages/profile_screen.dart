@@ -54,7 +54,7 @@ class ProfileScreen extends StatelessWidget {
               const Gap(20),
               ContainerWidget(name: 'Edit Profile' , onTap: ()
               {
-                pushTo(context, Routes.editProfile) ;
+                pushTo(context:  context,path:  Routes.editProfile) ;
               },) ,
               const Gap(20),
               ContainerWidget(name: 'Logout' , onTap: () {

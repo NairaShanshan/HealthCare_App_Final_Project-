@@ -91,7 +91,7 @@ class _SigninScreenBodyState extends State<SigninScreenBody> {
                 firstText: "Don't have an account? ",
                 secondText: 'Sign up',
                 navigateTo: () {
-                  pushTo(context, Routes.signup);
+                  pushTo (context:  context,path:  Routes.signup);
                 },
               ),
               const SizedBox(

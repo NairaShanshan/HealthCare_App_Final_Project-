@@ -1,6 +1,8 @@
 import 'package:go_router/go_router.dart';
 import 'package:healthcare_app/features/auth/presentation/pages/signin_screen.dart';
 import 'package:healthcare_app/features/auth/presentation/pages/signup_screen.dart';
+import 'package:healthcare_app/features/home/presentation/pages/detailed_screen.dart';
+import 'package:healthcare_app/features/home/presentation/pages/home_screen.dart';
 import 'package:healthcare_app/features/onboarding/onboarding_screen.dart';
 import 'package:healthcare_app/features/profile/presentation/pages/edit_profile.dart';
 import 'package:healthcare_app/features/profile/presentation/pages/profile_screen.dart';
@@ -17,9 +19,11 @@ class Routes {
   static const String profile = '/profile';  // This will be removed when the main screen is built.
   static const String editProfile = '/editProfile';   // But this one is not will be removed
 
+  static const String home = '/home';
+  static const String detailedScreen = '/detailed_screen';
 
   static final routes = GoRouter(
-    initialLocation: splash,
+    initialLocation: home,
     routes: [
       GoRoute(path: splash, builder: (context, state) => const SplashScreen()),
       GoRoute(
@@ -45,6 +49,16 @@ class Routes {
       GoRoute(
         path: editProfile,
         builder: (context, state) => const EditProfileScreen(),
+      ),
+      GoRoute(
+        path: home,
+        builder: (context, state) => const HomeScreen(),
+      ),
+      GoRoute(
+        path: detailedScreen,
+        builder: (context, state) => DetailedScreen(
+          title: state.extra as String,
+        ),
       ),
     ],
   );

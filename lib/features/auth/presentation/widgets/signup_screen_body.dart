@@ -102,9 +102,9 @@ class _SignupScreenBodyState extends State<SignupScreenBody> {
                 ),
               ),
             ),
-             MainButton(
+            MainButton(
               text: 'Sign In',
-              onPressed: (){},
+              onPressed: () {},
             ),
             const SizedBox(
               height: 8,
@@ -113,7 +113,7 @@ class _SignupScreenBodyState extends State<SignupScreenBody> {
               firstText: "Already have an account? ",
               secondText: 'Sign In',
               navigateTo: () {
-                pushTo(context, Routes.signin);
+                pushTo(context: context, path: Routes.signin);
               },
             ),
           ],
