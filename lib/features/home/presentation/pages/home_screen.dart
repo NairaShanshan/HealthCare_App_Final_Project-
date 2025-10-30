@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthcare_app/features/Booking/presentation/pages/appointment_screen.dart';
 import 'package:healthcare_app/features/home/presentation/widgets/custom_bottom_nav_bar.dart';
 import 'package:healthcare_app/features/home/presentation/widgets/home_screen_body.dart';
 
@@ -22,7 +23,8 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         },
       ),
-      body: const HomeScreenBody(),
+      // body: const HomeScreenBody(),
+      body: AppointmentInfoScreen(),
     );
   }
 }

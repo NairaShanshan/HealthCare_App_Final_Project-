@@ -26,5 +26,8 @@ class AppImages {
   static const String doctorTwo = 'assets/images/doctor_two.png';
   static const String doctorThree = 'assets/images/doctor_three.png';
 
-
+  static const String mySelf = 'assets/images/mySelf.png';
+  static const String child = 'assets/images/child.png';
+  static const String wife = 'assets/images/wife.png';
+  static const String parents = 'assets/images/parents 2.png';
 }
