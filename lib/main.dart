@@ -5,7 +5,6 @@ import 'package:healthcare_app/core/utils/app_fonts.dart';
 import 'package:healthcare_app/core/utils/functions.dart';
 import 'package:healthcare_app/core/utils/text_styles.dart';
 
-
 import 'core/services/local/shared_pref.dart';
 
 void main() async {
@@ -19,10 +18,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig:Routes.routes ,
+      routerConfig: Routes.routes,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: AppColors.backgroundColor,
+          surfaceTintColor: Colors.transparent,
+        ),
         fontFamily: AppFonts.poppins,
         inputDecorationTheme: InputDecorationTheme(
           fillColor: AppColors.accentColor,

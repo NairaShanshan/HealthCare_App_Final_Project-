@@ -4,7 +4,7 @@
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-        
+
 class Assets extends StatelessWidget {
   final AssetsData assets;
   final Widget child;
@@ -16,7 +16,8 @@ class Assets extends StatelessWidget {
   });
 
   static AssetsData of(BuildContext context) {
-    final widget = context.dependOnInheritedWidgetOfExactType<_InheritedAssets>();
+    final widget =
+        context.dependOnInheritedWidgetOfExactType<_InheritedAssets>();
     return widget?.assets ?? AssetsData.light();
   }
 
@@ -38,16 +39,20 @@ class _InheritedAssets extends InheritedWidget {
   });
 
   @override
-  bool updateShouldNotify(covariant _InheritedAssets oldWidget) => assets != oldWidget.assets;
+  bool updateShouldNotify(covariant _InheritedAssets oldWidget) =>
+      assets != oldWidget.assets;
 }
 
 class AssetsData {
   static AssetsData? _light;
   static AssetsData? _dark;
 
-  factory AssetsData.light() => _light ??= AssetsData._(brightness: Brightness.light);
-  factory AssetsData.dark() => _dark ??= AssetsData._(brightness: Brightness.dark);
-  factory AssetsData.brightness(Brightness brightness) => brightness == Brightness.light ? AssetsData.light() : AssetsData.dark();
+  factory AssetsData.light() =>
+      _light ??= AssetsData._(brightness: Brightness.light);
+  factory AssetsData.dark() =>
+      _dark ??= AssetsData._(brightness: Brightness.dark);
+  factory AssetsData.brightness(Brightness brightness) =>
+      brightness == Brightness.light ? AssetsData.light() : AssetsData.dark();
 
   final Brightness _brightness;
 
@@ -68,7 +73,7 @@ class _assets_fonts_dart {
 
   _assets_fonts_dart._({
     required Brightness brightness,
-  })  : _brightness = brightness;
+  }) : _brightness = brightness;
 
   final Poppins_Bold_ttf = 'assets/fonts/Poppins-Bold.ttf';
   final Poppins_Light_ttf = 'assets/fonts/Poppins-Light.ttf';
@@ -82,7 +87,7 @@ class _assets_icons_dart {
 
   _assets_icons_dart._({
     required Brightness brightness,
-  })  : _brightness = brightness;
+  }) : _brightness = brightness;
 
   final logo_svg = 'assets/icons/logo.svg';
 }
@@ -92,7 +97,7 @@ class _assets_images_dart {
 
   _assets_images_dart._({
     required Brightness brightness,
-  })  : _brightness = brightness;
+  }) : _brightness = brightness;
 
   final back_icon_svg = 'assets/images/back_icon.svg';
   final body_icon_svg = 'assets/images/body_icon.svg';
@@ -114,4 +119,9 @@ class _assets_images_dart {
   final report_icon_svg = 'assets/images/report_icon.svg';
   final tooth_icon_svg = 'assets/images/tooth_icon.svg';
   final user_icon_svg = 'assets/images/user_icon.svg';
+
+  static const String mySelf = 'assets/images/mySelf.png';
+  static const String child = 'assets/images/child.png';
+  static const String wife = 'assets/images/wife.png';
+  static const String parents = 'assets/images/parents 2.png';
 }
