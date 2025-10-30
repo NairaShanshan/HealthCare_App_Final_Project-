@@ -5,6 +5,7 @@ import 'package:healthcare_app/features/Booking/presentation/pages/select_date_a
 import 'package:healthcare_app/features/auth/presentation/pages/signin_screen.dart';
 import 'package:healthcare_app/features/auth/presentation/pages/signup_screen.dart';
 import 'package:healthcare_app/features/home/presentation/pages/home_screen.dart';
+import 'package:healthcare_app/features/main/main_screen.dart';
 import 'package:healthcare_app/features/onboarding/onboarding_screen.dart';
 import 'package:healthcare_app/features/profile/presentation/pages/edit_profile.dart';
 import 'package:healthcare_app/features/profile/presentation/pages/profile_screen.dart';
@@ -18,8 +19,9 @@ class Routes {
   static const String welcome = '/welcome';
   static const String signin = '/signin';
   static const String signup = '/signup';
-  static const String profile =
-      '/profile'; // This will be removed when the main screen is built.
+  static const String main = '/main';
+
+
   static const String editProfile =
       '/editProfile'; // But this one is not will be removed
 
@@ -49,8 +51,8 @@ class Routes {
         builder: (context, state) => const SignupScreen(),
       ),
       GoRoute(
-        path: profile,
-        builder: (context, state) => const ProfileScreen(),
+        path: main,
+        builder: (context, state) => const MainAppScreen(),
       ),
       GoRoute(
         path: editProfile,
