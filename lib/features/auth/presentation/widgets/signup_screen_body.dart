@@ -41,7 +41,9 @@ class _SignupScreenBodyState extends State<SignupScreenBody> {
                     ),
                     MainHeader(
                       title: 'Sing Up',
-                      onBackButtonPressed: () {},
+                      onBackButtonPressed: () {
+                        pop(context);
+                      },
                     ),
                     const SizedBox(
                       height: 30,
@@ -49,10 +51,13 @@ class _SignupScreenBodyState extends State<SignupScreenBody> {
                     MainTextFormField(
                       hintText: 'Enter your name',
                       textInputType: TextInputType.text,
-                      prefixIcon: SvgPicture.asset(
-                        AppImages.userIconSvg,
-                        width: 24,
-                        height: 24,
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: SvgPicture.asset(
+                          AppImages.userIconSvg,
+                          width: 24,
+                          height: 24,
+                        ),
                       ),
                     ),
                     const SizedBox(
@@ -61,10 +66,13 @@ class _SignupScreenBodyState extends State<SignupScreenBody> {
                     MainTextFormField(
                       hintText: 'Enter your email',
                       textInputType: TextInputType.emailAddress,
-                      prefixIcon: SvgPicture.asset(
-                        AppImages.emailIconSvg,
-                        width: 24,
-                        height: 24,
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: SvgPicture.asset(
+                          AppImages.emailIconSvg,
+                          width: 24,
+                          height: 24,
+                        ),
                       ),
                     ),
                     const SizedBox(
@@ -73,10 +81,13 @@ class _SignupScreenBodyState extends State<SignupScreenBody> {
                     MainTextFormField(
                       hintText: 'Enter your password',
                       textInputType: TextInputType.visiblePassword,
-                      prefixIcon: SvgPicture.asset(
-                        AppImages.passwordIconSvg,
-                        width: 24,
-                        height: 24,
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: SvgPicture.asset(
+                          AppImages.passwordIconSvg,
+                          width: 24,
+                          height: 24,
+                        ),
                       ),
                       isPassword: isPassword,
                       suffixIcon: IconButton(
@@ -103,7 +114,7 @@ class _SignupScreenBodyState extends State<SignupScreenBody> {
               ),
             ),
             MainButton(
-              text: 'Sign In',
+              text: 'Sign Up',
               onPressed: () {},
             ),
             const SizedBox(
