@@ -38,7 +38,9 @@ class _SigninScreenBodyState extends State<SigninScreenBody> {
               ),
               MainHeader(
                 title: 'Sing In',
-                onBackButtonPressed: () {},
+                onBackButtonPressed: () {
+                  pop(context);
+                },
               ),
               const SizedBox(
                 height: 30,
@@ -46,10 +48,13 @@ class _SigninScreenBodyState extends State<SigninScreenBody> {
               MainTextFormField(
                 hintText: 'Enter your email',
                 textInputType: TextInputType.emailAddress,
-                prefixIcon: SvgPicture.asset(
-                  AppImages.emailIconSvg,
-                  width: 24,
-                  height: 24,
+                prefixIcon: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: SvgPicture.asset(
+                    AppImages.emailIconSvg,
+                    width: 24,
+                    height: 24,
+                  ),
                 ),
               ),
               const SizedBox(
@@ -58,10 +63,13 @@ class _SigninScreenBodyState extends State<SigninScreenBody> {
               MainTextFormField(
                 hintText: 'Enter your password',
                 textInputType: TextInputType.visiblePassword,
-                prefixIcon: SvgPicture.asset(
-                  AppImages.passwordIconSvg,
-                  width: 24,
-                  height: 24,
+                prefixIcon: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: SvgPicture.asset(
+                    AppImages.passwordIconSvg,
+                    width: 24,
+                    height: 24,
+                  ),
                 ),
                 isPassword: isPassword,
                 suffixIcon: IconButton(

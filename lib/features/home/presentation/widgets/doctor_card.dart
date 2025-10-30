@@ -1,3 +1,4 @@
+import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:healthcare_app/core/utils/app_colors.dart';
@@ -16,8 +17,10 @@ class DoctorCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
     return Container(
-      width: 180,
+      width: width/2,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
@@ -35,7 +38,7 @@ class DoctorCard extends StatelessWidget {
             child: Image.asset(
               imagePath,
               width: double.infinity,
-              height: 145,
+              height: height / 5.5,
               fit: BoxFit.cover,
             ),
           ),
@@ -83,5 +86,3 @@ class DoctorCard extends StatelessWidget {
     );
   }
 }
-
-
