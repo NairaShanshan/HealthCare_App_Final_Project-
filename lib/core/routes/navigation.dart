@@ -8,10 +8,10 @@ pushTo({required BuildContext context, required String path, Object? extra}) {
 pushReplacement(BuildContext context, String path) {
   context.pushReplacement(path);
 }
-
-pushtToBase(BuildContext context, String path) {
-  context.go(path);
+pushToBase(BuildContext context, String path, {Object? extra}) {
+  context.go(path, extra: extra);
 }
+
 
 pop(BuildContext context) {
   context.pop(context);

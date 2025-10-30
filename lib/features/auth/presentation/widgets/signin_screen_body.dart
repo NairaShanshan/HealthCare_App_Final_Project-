@@ -82,7 +82,9 @@ class _SigninScreenBodyState extends State<SigninScreenBody> {
               ),
               MainButton(
                 text: 'Sign In',
-                onPressed: () {},
+                onPressed: () {
+                  pushToBase(context, Routes.main) ;
+                },
               ),
               const SizedBox(
                 height: 8,

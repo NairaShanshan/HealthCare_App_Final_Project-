@@ -50,7 +50,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           TextButton(
               onPressed: () {
                 //submit();
-                pushReplacement(context, Routes.main) ;
+                pushToBase(context, Routes.main) ;
               },
               child: Text(
                 'Skip',
