@@ -52,6 +52,7 @@ class ProfileScreen extends StatelessWidget {
               const Gap(20),
               ContainerWidget(name: 'My Appointment' , onTap: (){
                 //push Replacement to  Appointment screen
+                context.push(Routes.main, extra: 1);
               }) ,
               const Gap(20),
               ContainerWidget(name: 'Edit Profile' , onTap: ()
