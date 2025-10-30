@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:healthcare_app/core/constants/app_images.dart';
 import 'package:healthcare_app/core/routes/navigation.dart';
 import 'package:healthcare_app/core/routes/routes.dart';
@@ -46,6 +47,7 @@ class ProfileScreen extends StatelessWidget {
               const Gap(20),
               ContainerWidget(name: 'My Doctors' , onTap: (){
                 // push Replacement to favourite screen
+                context.push(Routes.main, extra: 1);
               },) ,
               const Gap(20),
               ContainerWidget(name: 'My Appointment' , onTap: (){

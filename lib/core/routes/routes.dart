@@ -1,16 +1,20 @@
 import 'package:go_router/go_router.dart';
+
 import 'package:healthcare_app/features/Booking/presentation/pages/appointment_screen.dart';
 import 'package:healthcare_app/features/Booking/presentation/pages/select_date_and_confirmation_screen.dart';
 
 import 'package:healthcare_app/features/auth/presentation/pages/signin_screen.dart';
 import 'package:healthcare_app/features/auth/presentation/pages/signup_screen.dart';
-import 'package:healthcare_app/features/home/presentation/pages/home_screen.dart';
+
 import 'package:healthcare_app/features/main/main_screen.dart';
 import 'package:healthcare_app/features/onboarding/onboarding_screen.dart';
 import 'package:healthcare_app/features/profile/presentation/pages/edit_profile.dart';
-import 'package:healthcare_app/features/profile/presentation/pages/profile_screen.dart';
+
 import 'package:healthcare_app/features/splash/splash_screen.dart';
 import 'package:healthcare_app/features/welcome/welcome_screen.dart';
+
+import '../../features/home/presentation/pages/detailed_screen.dart';
+
 
 class Routes {
   static const String splash = '/';
@@ -25,13 +29,13 @@ class Routes {
   static const String editProfile =
       '/editProfile'; // But this one is not will be removed
 
-  static const String home = '/home';
+
   static const String detailedScreen = '/detailed_screen';
   static const String booking = '/screen1';
   static const String selectDate = '/select-date_screen';
 
   static final routes = GoRouter(
-    initialLocation: home,
+    initialLocation: splash,
     routes: [
       GoRoute(path: splash, builder: (context, state) => const SplashScreen()),
       GoRoute(
@@ -52,15 +56,15 @@ class Routes {
       ),
       GoRoute(
         path: main,
-        builder: (context, state) => const MainAppScreen(),
+        builder: (context, state) =>  MainAppScreen( initialIndex:  state.extra as int?,),
       ),
       GoRoute(
         path: editProfile,
         builder: (context, state) => const EditProfileScreen(),
       ),
       GoRoute(
-        path: home,
-        builder: (context, state) => const HomeScreen(),
+        path: detailedScreen,
+        builder: (context, state) =>  DetailedScreen(title: 'Popular Doctor ',),
       ),
       GoRoute(
         path: booking,
