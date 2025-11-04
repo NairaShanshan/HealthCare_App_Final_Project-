@@ -1,10 +1,11 @@
 
 import 'package:flutter/material.dart';
+import 'package:healthcare_app/features/doctor/page/doctor_screen.dart';
 import 'package:healthcare_app/features/favourite/presentation/pages/favourite_screen.dart';
 
 import 'package:healthcare_app/features/home/presentation/widgets/custom_bottom_nav_bar.dart';
 
-import '../Booking/presentation/pages/appointment_screen.dart';
+
 import '../home/presentation/pages/home_screen.dart';
 import '../profile/presentation/pages/profile_screen.dart';
 
@@ -20,12 +21,10 @@ class _MainAppScreenState extends State<MainAppScreen> {
   int _currentIndex = 0;
 
   List<Widget> pages = [
-    HomeScreen(), // index=>0
+    HomeScreen(),
     FavouriteScreen(),
-    // index=>1
-    AppointmentInfoScreen(),
-    ProfileScreen(), // index=>2
-    // The correct index for the ProfileScreen is 3, and the screen at index 2 hasnΓÇÖt been built yet.
+    DoctorScreen(),
+    ProfileScreen(),
   ];
 
   // @override
