@@ -1,7 +1,9 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:healthcare_app/features/Booking/presentation/pages/appointment_screen.dart';
 import 'package:healthcare_app/features/Booking/presentation/pages/select_date_and_confirmation_screen.dart';
+import 'package:healthcare_app/features/auth/presentation/cubit/cubit.dart';
 
 import 'package:healthcare_app/features/auth/presentation/pages/signin_screen.dart';
 import 'package:healthcare_app/features/auth/presentation/pages/signup_screen.dart';
@@ -46,11 +48,12 @@ class Routes {
       ),
       GoRoute(
         path: signin,
-        builder: (context, state) => const SigninScreen(),
+        builder: (context, state) => BlocProvider(create: (context) => AuthCubit(), child: const SigninScreen()),
       ),
       GoRoute(
         path: signup,
-        builder: (context, state) => const SignupScreen(),
+        builder: (context, state) => BlocProvider(
+            create: (context) => AuthCubit(), child: const SignupScreen()),
       ),
       GoRoute(
         path: main,
