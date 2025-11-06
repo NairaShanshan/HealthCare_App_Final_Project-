@@ -19,7 +19,8 @@ class PopularDoctorsView extends StatelessWidget {
       itemBuilder: (context, index) => Padding(
         padding: const EdgeInsets.only(right: 16),
         child: DoctorCard(
-          imagePath: AppImages.doctorOne,
+          // imagePath: AppImages.doctorOne,
+          imagePath: doctors[index].imagePath,
           doctorName: doctors[index].name,
           specialty: doctors[index].specialization,
           rating: doctors[index].rating,

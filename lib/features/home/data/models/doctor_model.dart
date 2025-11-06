@@ -1,3 +1,4 @@
+import 'package:healthcare_app/core/constants/doctors_images.dart';
 import 'package:healthcare_app/features/home/domain/enitites/doctor_entity.dart';
 
 class DoctorModel extends DoctorEntity {
@@ -5,13 +6,17 @@ class DoctorModel extends DoctorEntity {
     required super.name,
     required super.rating,
     required super.specialization,
+    required super.id,
+    required super.imagePath,
   });
 
-  factory DoctorModel.fromJson(Map<String, dynamic> json) {
+  factory DoctorModel.fromJson(Map<String, dynamic> json, String id) {
     return DoctorModel(
       name: json['name'],
       rating: json['rating'],
       specialization: json['specialization'],
+      id: id,
+      imagePath: DoctorImages.getDoctorImage(id),
     );
   }
 
@@ -20,6 +25,8 @@ class DoctorModel extends DoctorEntity {
       name: doctor.name,
       rating: doctor.rating,
       specialization: doctor.specialization,
+      id: doctor.id,
+      imagePath: doctor.imagePath,
     );
   }
   DoctorEntity toEntity() {
@@ -27,6 +34,8 @@ class DoctorModel extends DoctorEntity {
       name: name,
       rating: rating,
       specialization: specialization,
+      id: id,
+      imagePath: imagePath,
     );
   }
 
@@ -35,6 +44,7 @@ class DoctorModel extends DoctorEntity {
       'name': name,
       'rating': rating,
       'specialization': specialization,
+      'id': id,
     };
   }
 
