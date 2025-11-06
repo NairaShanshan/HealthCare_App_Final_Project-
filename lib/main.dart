@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:healthcare_app/core/routes/routes.dart';
+import 'package:healthcare_app/core/services/get_it_service.dart';
 import 'package:healthcare_app/core/utils/app_colors.dart';
 import 'package:healthcare_app/core/utils/app_fonts.dart';
 import 'package:healthcare_app/core/utils/functions.dart';
@@ -16,6 +17,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  setupGetit();
   runApp(const MyApp());
 }
 

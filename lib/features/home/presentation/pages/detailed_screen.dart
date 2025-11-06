@@ -4,14 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:healthcare_app/core/constants/app_images.dart';
 import 'package:healthcare_app/features/auth/presentation/widgets/main_back_button.dart';
 import 'package:healthcare_app/features/auth/presentation/widgets/main_scaffold.dart';
+import 'package:healthcare_app/features/home/domain/enitites/doctor_entity.dart';
 import 'package:healthcare_app/features/home/presentation/widgets/detailed_doctor_card.dart';
 
 class DetailedScreen extends StatelessWidget {
   const DetailedScreen({
     super.key,
     required this.title,
+    required this.popularDoctor,
   });
   final String title;
+  final List<DoctorEntity> popularDoctor;
   @override
   Widget build(BuildContext context) {
     return MainScaffold(
@@ -40,14 +43,15 @@ class DetailedScreen extends StatelessWidget {
               ),
               Expanded(
                 child: ListView.builder(
-                  itemCount: 10,
+                  itemCount: popularDoctor.length,
                   itemBuilder: (context, index) {
-                    return const Padding(
-                      padding: EdgeInsets.only(bottom: 16.0),
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: 16.0),
                       child: DetailedDoctorCard(
                         imagePath: AppImages.doctorOne,
-                        doctorName: 'Dr.Pediatrician',
-                        specialty: 'Specialist Cardiologist',
+                        doctorName: popularDoctor[index].name,
+                        specialty: popularDoctor[index].specialization,
+                        rating: popularDoctor[index].rating,
                       ),
                     );
                   },
@@ -60,7 +64,6 @@ class DetailedScreen extends StatelessWidget {
     );
   }
 }
-
 
 class AppBackground extends StatelessWidget {
   final Widget child;
