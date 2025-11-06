@@ -7,6 +7,7 @@ import 'package:healthcare_app/core/utils/text_styles.dart';
 import 'package:healthcare_app/features/onboarding/widget/onboarding_item.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../core/services/local/shared_pref.dart';
 import 'model/onboarding_model.dart';
 
 
@@ -20,24 +21,7 @@ class OnBoardingScreen extends StatefulWidget {
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   final pageViewController = PageController();
-
-
-
-  bool isLastBoarding = false;
-
-  // void submit() {
-  //   SharedPref.setData('onboarding', true).then((value) {
-  //     if (value == true) {
-  //       // loginScreen
-  //     }
-  //   });
-  // }
-
-  void submit() {
-    if (isLastBoarding == true) {
-      pushReplacement(context, Routes.welcome) ;
-    }
-  }
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -47,10 +31,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         backgroundColor: AppColors.whiteColor,
         elevation: 0.0,
         actions: [
-          TextButton(
+          if (currentIndex != 2)
+
+            TextButton(
               onPressed: () {
-                //submit();
-                pushToBase(context, Routes.main) ;
+                SharedPref.setOnBoardingShown();
+                pushReplacement(context, Routes.welcome);
               },
               child: Text(
                 'Skip',
@@ -72,15 +58,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   return OnBoardingItem(model: onboarding[index]);
                 },
                 onPageChanged: (int index) {
-                  if (index == onboarding.length - 1) {
-                    setState(() {
-                      isLastBoarding = true;
-                    });
-                  } else {
-                    setState(() {
-                      isLastBoarding = false;
-                    });
-                  }
+                  setState(() {
+                    currentIndex = index;
+                  });
+
                 },
               ),
             ),
@@ -95,13 +76,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    if (isLastBoarding == true) {
-                      submit();
-                    } else {
-                      pageViewController.nextPage(
-                          duration: const Duration(milliseconds: 750),
-                          curve: Curves.fastLinearToSlowEaseIn);
-                    }
+                    SharedPref.setOnBoardingShown();
+                    pushReplacement(context, Routes.welcome);
                   },
                   child: const CircleAvatar(
                     radius: 28,

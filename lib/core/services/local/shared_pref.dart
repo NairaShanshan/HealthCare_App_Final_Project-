@@ -1,17 +1,23 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-
-
 class SharedPref {
   static late SharedPreferences prefs;
 
-
+  static const kToken = 'token';
+  static const kUserData = 'kUserData';
+  static const kOnBoardingShown = 'onBoardingShown';
 
   static init() async {
     prefs = await SharedPreferences.getInstance();
   }
 
+  static setOnBoardingShown() {
+    prefs.setBool(kOnBoardingShown, true);
+  }
 
+  static bool isOnBoardingShown() {
+    return prefs.getBool(kOnBoardingShown) ?? false;
+  }
 
   static setData(String key, dynamic value) {
     if (value is int) {

@@ -1,9 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:healthcare_app/core/routes/navigation.dart';
 import 'package:healthcare_app/core/routes/routes.dart';
 import 'dart:async'; // For Timer
 
-import '../onboarding/onboarding_screen.dart';
+import '../../core/services/local/shared_pref.dart';
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,15 +17,23 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
+    bool isOnboardingShown = SharedPref.isOnBoardingShown();
+    User? user = FirebaseAuth.instance.currentUser;
+
+    Future.delayed(const Duration(seconds: 3), () {
+      if (user != null) {
+
+        pushReplacement(context, Routes.main);
+      } else {
+        if (isOnboardingShown) {
+          pushReplacement(context, Routes.welcome);
+        } else {
+          pushReplacement(context, Routes.onboarding);
+        }
+      }
+    });
     super.initState();
 
-    Timer(const Duration(seconds: 5), () {
-      // Navigator.pushReplacement(
-      //   context,
-      //   MaterialPageRoute(builder: (context) => const OnBoardingScreen()),
-      // );
-      pushReplacement(context, Routes.onboarding) ;
-    });
   }
 
   @override
