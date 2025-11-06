@@ -5,6 +5,7 @@ import 'package:healthcare_app/features/Booking/presentation/pages/select_date_a
 
 import 'package:healthcare_app/features/auth/presentation/pages/signin_screen.dart';
 import 'package:healthcare_app/features/auth/presentation/pages/signup_screen.dart';
+import 'package:healthcare_app/features/home/domain/enitites/doctor_entity.dart';
 
 import 'package:healthcare_app/features/main/main_screen.dart';
 import 'package:healthcare_app/features/onboarding/onboarding_screen.dart';
@@ -15,7 +16,6 @@ import 'package:healthcare_app/features/welcome/welcome_screen.dart';
 
 import '../../features/home/presentation/pages/detailed_screen.dart';
 
-
 class Routes {
   static const String splash = '/';
   static const String onboarding = '/onboarding';
@@ -25,10 +25,8 @@ class Routes {
   static const String signup = '/signup';
   static const String main = '/main';
 
-
   static const String editProfile =
       '/editProfile'; // But this one is not will be removed
-
 
   static const String detailedScreen = '/detailed_screen';
   static const String booking = '/screen1';
@@ -56,7 +54,9 @@ class Routes {
       ),
       GoRoute(
         path: main,
-        builder: (context, state) =>  MainAppScreen( initialIndex:  state.extra as int?,),
+        builder: (context, state) => MainAppScreen(
+          initialIndex: state.extra as int?,
+        ),
       ),
       GoRoute(
         path: editProfile,
@@ -64,7 +64,12 @@ class Routes {
       ),
       GoRoute(
         path: detailedScreen,
-        builder: (context, state) =>  DetailedScreen(title: 'Popular Doctor ',),
+        builder: (context, state) {
+          return DetailedScreen(
+            title: 'Popular Doctor ',
+            popularDoctor: state.extra as List<DoctorEntity>,
+          );
+        },
       ),
       GoRoute(
         path: booking,

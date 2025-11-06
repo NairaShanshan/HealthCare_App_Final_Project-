@@ -1,18 +1,19 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
+import 'package:healthcare_app/core/helper/create_rating_row.dart';
 import 'package:healthcare_app/core/utils/app_colors.dart';
 
 class DoctorCard extends StatelessWidget {
   final String imagePath;
   final String doctorName;
   final String specialty;
+  final num rating;
 
   const DoctorCard({
     super.key,
     required this.imagePath,
     required this.doctorName,
     required this.specialty,
+    required this.rating,
   });
 
   @override
@@ -20,7 +21,7 @@ class DoctorCard extends StatelessWidget {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     return Container(
-      width: width/2,
+      width: width / 2,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
@@ -49,10 +50,11 @@ class DoctorCard extends StatelessWidget {
           Text(
             doctorName,
             style: const TextStyle(
-              fontSize: 16,
+              fontSize: 12,
               fontWeight: FontWeight.bold,
               color: Colors.black87,
             ),
+            maxLines: 1,
           ),
 
           const SizedBox(height: 4),
@@ -69,15 +71,9 @@ class DoctorCard extends StatelessWidget {
           const SizedBox(height: 6),
 
           // Star rating
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(Icons.star, color: Colors.amber, size: 20),
-              Icon(Icons.star, color: Colors.amber, size: 20),
-              Icon(Icons.star, color: Colors.amber, size: 20),
-              Icon(Icons.star, color: Colors.amber, size: 20),
-              Icon(Icons.star_border, color: Colors.amber, size: 20),
-            ],
+          createRatingRow(
+            context: context,
+            rating: rating,
           ),
 
           const SizedBox(height: 8),

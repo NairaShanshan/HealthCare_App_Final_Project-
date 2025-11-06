@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:healthcare_app/core/helper/create_rating_row.dart';
 import 'package:healthcare_app/core/utils/app_colors.dart';
 
 class DetailedDoctorCard extends StatelessWidget {
   final String imagePath;
   final String doctorName;
   final String specialty;
+  final num rating;
 
   const DetailedDoctorCard({
     super.key,
     required this.imagePath,
     required this.doctorName,
     required this.specialty,
+    required this.rating,
   });
 
   @override
@@ -60,32 +63,25 @@ class DetailedDoctorCard extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 12),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(Icons.star, color: Colors.amber, size: 16),
-                        Icon(Icons.star, color: Colors.amber, size: 16),
-                        Icon(Icons.star, color: Colors.amber, size: 16),
-                        Icon(Icons.star, color: Colors.amber, size: 16),
-                        Icon(Icons.star_border, color: Colors.amber, size: 16),
-                      ],
+                    createRatingRow(
+                      context: context,
+                      rating: rating,
                     ),
-                  
                     Text.rich(
                       textAlign: TextAlign.right,
                       TextSpan(children: [
                         TextSpan(
-                          text: '2.4',
-                          style: TextStyle(
+                          text: '$rating',
+                          style: const TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 16,
                             color: Colors.black,
                           ),
                         ),
-                        TextSpan(
+                        const TextSpan(
                           text: '(2475views)',
                           style: TextStyle(
                             fontWeight: FontWeight.w400,
