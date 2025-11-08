@@ -6,7 +6,7 @@ import 'package:healthcare_app/core/routes/routes.dart';
 import 'package:healthcare_app/core/utils/app_colors.dart';
 import 'package:healthcare_app/core/utils/text_styles.dart';
 import 'package:healthcare_app/core/widgets/main_button.dart';
-import 'package:healthcare_app/core/widgets/main_header.dart';
+
 
 import '../../Booking/presentation/widgets/doctor_card.dart';
 
@@ -17,9 +17,8 @@ class DoctorScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: MainHeader(title: 'Doctor Details', onBackButtonPressed: (){
-          pop(context) ;
-        }),
+        title:const  Text('Doctor Details '),
+        centerTitle: true,
 
       ),
       body: SingleChildScrollView(
@@ -37,7 +36,7 @@ class DoctorScreen extends StatelessWidget {
                 isFavorite: false,
               ) ,
               const Gap(30) ,
-              MainButton(text: 'Book Now', onPressed: (){
+              MainButton(borderRadius: BorderRadiusGeometry.circular(5)   ,text: 'Book Now', onPressed: (){
                 pushTo(context: context, path: Routes.booking) ;
               }) ,
               const Gap(20) ,

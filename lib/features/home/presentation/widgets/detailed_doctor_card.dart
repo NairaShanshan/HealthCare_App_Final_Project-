@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:healthcare_app/core/helper/create_rating_row.dart';
+import 'package:healthcare_app/core/routes/navigation.dart';
+import 'package:healthcare_app/core/routes/routes.dart';
 import 'package:healthcare_app/core/utils/app_colors.dart';
+import 'package:healthcare_app/core/widgets/main_button.dart';
 
 class DetailedDoctorCard extends StatelessWidget {
   final String imagePath;
@@ -42,7 +46,6 @@ class DetailedDoctorCard extends StatelessWidget {
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   doctorName,
@@ -58,11 +61,12 @@ class DetailedDoctorCard extends StatelessWidget {
                 Text(
                   specialty,
                   style: const TextStyle(
-                    fontSize: 12,
+                    fontSize: 13,
                     color: AppColors.greyColor,
                   ),
                 ),
-                const SizedBox(width: 12),
+                const Gap(5),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -70,29 +74,41 @@ class DetailedDoctorCard extends StatelessWidget {
                       context: context,
                       rating: rating,
                     ),
-                    Text.rich(
-                      textAlign: TextAlign.right,
-                      TextSpan(children: [
-                        TextSpan(
-                          text: '$rating',
-                          style: const TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 16,
-                            color: Colors.black,
-                          ),
-                        ),
-                        const TextSpan(
-                          text: '(2475views)',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
-                            color: AppColors.greyColor,
-                          ),
-                        ),
-                      ]),
-                    )
+
+
+                    // Text.rich(
+                    //   textAlign: TextAlign.right,
+                    //   TextSpan(children: [
+                    //     TextSpan(
+                    //       text: '$rating',
+                    //       style: const TextStyle(
+                    //         fontWeight: FontWeight.w500,
+                    //         fontSize: 16,
+                    //         color: Colors.black,
+                    //       ),
+                    //     ),
+                    //     const TextSpan(
+                    //       text: '(2475views)',
+                    //       style: TextStyle(
+                    //         fontWeight: FontWeight.w400,
+                    //         fontSize: 14,
+                    //         color: AppColors.greyColor,
+                    //       ),
+                    //     ),
+                    //   ]),
+                    // )
                   ],
-                )
+                ) ,
+                const Gap(10),
+                MainButton(
+                    borderRadius: BorderRadius.circular(3),
+                    width: 150,
+                    height: 33,
+                    text: 'Book Now',
+                    onPressed: () {
+                      pushTo(context: context, path: Routes.doctorScreen);
+                    })
+
               ],
             ),
           ),

@@ -7,11 +7,13 @@ import 'package:healthcare_app/features/auth/presentation/cubit/cubit.dart';
 
 import 'package:healthcare_app/features/auth/presentation/pages/signin_screen.dart';
 import 'package:healthcare_app/features/auth/presentation/pages/signup_screen.dart';
+import 'package:healthcare_app/features/doctor/page/doctor_screen.dart';
 import 'package:healthcare_app/features/home/domain/enitites/doctor_entity.dart';
 
 import 'package:healthcare_app/features/main/main_screen.dart';
 import 'package:healthcare_app/features/onboarding/onboarding_screen.dart';
 import 'package:healthcare_app/features/profile/presentation/pages/edit_profile.dart';
+import 'package:healthcare_app/features/search/page/search_screen.dart';
 
 import 'package:healthcare_app/features/splash/splash_screen.dart';
 import 'package:healthcare_app/features/welcome/welcome_screen.dart';
@@ -33,6 +35,8 @@ class Routes {
   static const String detailedScreen = '/detailed_screen';
   static const String booking = '/screen1';
   static const String selectDate = '/select-date_screen';
+  static const String search = '/search';
+  static const String doctorScreen = '/doctorScreen';
 
   static final routes = GoRouter(
     initialLocation: splash,
@@ -75,6 +79,15 @@ class Routes {
         },
       ),
       GoRoute(
+        path: search,
+        builder: (context, state) {
+          return SearchScreen(
+
+              searchKey: state.extra as String
+          );
+        },
+      ),
+      GoRoute(
         path: booking,
         builder: (context, state) => const AppointmentInfoScreen(),
       ),
@@ -88,6 +101,10 @@ class Routes {
             initialTime: data?['time'],
           );
         },
+      ),
+      GoRoute(
+        path: doctorScreen,
+        builder: (context, state) => const DoctorScreen(),
       ),
     ],
   );
