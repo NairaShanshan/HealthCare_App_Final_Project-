@@ -48,4 +48,18 @@ class FirestoreService implements RemoteService {
     var data = await firebaseFirestore.collection(path).doc(id).get();
     return data.exists;
   }
+
+  static Future<QuerySnapshot> filterDoctorsBySpecialization(
+      String specialization) async {
+    try {
+      return await FirebaseFirestore.instance
+          .collection('doctor') // ← اسم الكولكشن في Firestore
+          .where('specialization', isEqualTo: specialization)
+          .get();
+    } catch (e, stackTrace) {
+      log('Error filtering doctors: $e');
+      log(stackTrace.toString());
+      rethrow;
+    }
+  }
 }

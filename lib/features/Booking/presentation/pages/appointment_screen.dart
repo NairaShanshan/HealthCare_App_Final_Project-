@@ -7,9 +7,11 @@ import 'package:healthcare_app/core/utils/app_colors.dart';
 import 'package:healthcare_app/core/utils/text_styles.dart';
 import 'package:healthcare_app/features/Booking/presentation/widgets/doctor_card.dart';
 import 'package:healthcare_app/features/Booking/presentation/widgets/patient_option_card.dart';
+import 'package:healthcare_app/features/home/domain/enitites/doctor_entity.dart';
 
 class AppointmentInfoScreen extends StatefulWidget {
-  const AppointmentInfoScreen({super.key});
+  final DoctorEntity doctor;
+  const AppointmentInfoScreen({super.key, required this.doctor});
 
   @override
   State<AppointmentInfoScreen> createState() => _AppointmentInfoScreenState();
@@ -42,14 +44,7 @@ class _AppointmentInfoScreenState extends State<AppointmentInfoScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const DoctorCard(
-              name: 'Dr. Pediatrician',
-              specialty: 'Specialist Cardiologist',
-              price: '\$28.00/hr',
-              rating: 4.9,
-              image: AppImages.doctorTwo,
-              isFavorite: false,
-            ),
+            DoctorCard(doctor: widget.doctor),
             const Gap(15),
             Text(
               'Appointment For',
