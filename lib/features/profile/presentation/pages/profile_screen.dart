@@ -60,6 +60,16 @@ class ProfileScreen extends StatelessWidget {
                 pushTo(context:  context,path:  Routes.editProfile) ;
               },) ,
               const Gap(20),
+              ContainerWidget(name: 'Help Center' , onTap: ()
+              {
+                pushTo(context:  context,path:  Routes.editProfile) ;
+              },) ,
+              const Gap(20),
+              ContainerWidget(name: 'Setting' , onTap: ()
+              {
+                pushTo(context:  context,path:  Routes.editProfile) ;
+              },) ,
+              const Gap(20),
               ContainerWidget(name: 'Logout' , onTap: () {
                 showDialog(
                     context: context,

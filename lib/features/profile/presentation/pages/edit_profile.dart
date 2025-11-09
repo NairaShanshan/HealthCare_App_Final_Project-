@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
@@ -56,7 +57,7 @@ class EditProfileScreen extends StatelessWidget {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(60),
                     child: Image.asset(
-                      AppImages.userImage,
+                      AppImages.noProfileImage,
                       width: 110,
                       height: 110,
                       fit: BoxFit.cover,
@@ -87,7 +88,7 @@ class EditProfileScreen extends StatelessWidget {
               ),
               const Gap(15),
               MainTextFormField(
-                hintText: 'Name',
+                hintText: FirebaseAuth.instance.currentUser?.displayName ?? 'User',
                 textInputType: TextInputType.name,
                 borderColor: Colors.transparent,
                 suffixIcon:
@@ -114,7 +115,7 @@ class EditProfileScreen extends StatelessWidget {
               ),
               const Gap(15),
               MainTextFormField(
-                hintText: 'Address',
+                hintText: 'City',
                 textInputType: TextInputType.streetAddress,
                 borderColor: Colors.transparent,
                 suffixIcon:
