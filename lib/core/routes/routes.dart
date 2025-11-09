@@ -52,7 +52,8 @@ class Routes {
       ),
       GoRoute(
         path: signin,
-        builder: (context, state) => BlocProvider(create: (context) => AuthCubit(), child: const SigninScreen()),
+        builder: (context, state) => BlocProvider(
+            create: (context) => AuthCubit(), child: const SigninScreen()),
       ),
       GoRoute(
         path: signup,
@@ -81,10 +82,7 @@ class Routes {
       GoRoute(
         path: search,
         builder: (context, state) {
-          return SearchScreen(
-
-              searchKey: state.extra as String
-          );
+          return const SearchScreen();
         },
       ),
       GoRoute(
