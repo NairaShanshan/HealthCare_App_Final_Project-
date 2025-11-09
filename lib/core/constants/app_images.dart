@@ -16,6 +16,7 @@ class AppImages {
   static const String reportIconSvg = 'assets/images/report_icon.svg';
   static const String profileIconSvg = 'assets/images/profile_icon.svg';
   static const String profileImage = 'assets/images/profile_image.png';
+  static const String noProfileImage = 'assets/images/NoProfilePicture.jpg';
 
   static const String toothIconSvg = 'assets/images/tooth_icon.svg';
   static const String heartIconSvg = 'assets/images/heart_icon.svg';

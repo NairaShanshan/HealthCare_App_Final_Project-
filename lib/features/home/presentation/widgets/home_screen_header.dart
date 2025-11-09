@@ -1,4 +1,4 @@
-
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:healthcare_app/core/constants/app_images.dart';
 
@@ -24,8 +24,8 @@ class HomeScreenHeader extends StatelessWidget {
           bottomRight: Radius.circular(25),
         ),
       ),
-      child: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -36,15 +36,15 @@ class HomeScreenHeader extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Hi Handwerker!',
-                    style: TextStyle(
+                    'Hi ${FirebaseAuth.instance.currentUser?.displayName ?? 'User'}',
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  SizedBox(height: 4),
-                  Text(
+                  const SizedBox(height: 4),
+                  const Text(
                     'Find Your Doctor',
                     style: TextStyle(
                       color: Colors.white,
@@ -55,11 +55,17 @@ class HomeScreenHeader extends StatelessWidget {
                 ],
               ),
             ),
-            Image(
-              image: AssetImage(
-                AppImages.profileImage,
+            ClipRRect(
+              borderRadius: BorderRadius.circular(40),
+              child: Image.asset(
+                AppImages.noProfileImage,
+                width: 70,
+                height: 70,
+                fit: BoxFit.cover,
               ),
             ),
+
+
           ],
         ),
       ),
