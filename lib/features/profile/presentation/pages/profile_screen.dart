@@ -48,11 +48,13 @@ class ProfileScreen extends StatelessWidget {
               const Gap(20),
               ContainerWidget(name: 'My Doctors' , onTap: (){
                 // push Replacement to favourite screen
-                context.push(Routes.main, extra: 1);
+                context.pushReplacement(Routes.main, extra: 1);
+
               },) ,
               const Gap(20),
               ContainerWidget(name: 'My Appointment' , onTap: (){
                 //push Replacement to  Appointment screen
+                context.pushReplacement(Routes.main, extra: 2);
               }) ,
               const Gap(20),
               ContainerWidget(name: 'Edit Profile' , onTap: ()
