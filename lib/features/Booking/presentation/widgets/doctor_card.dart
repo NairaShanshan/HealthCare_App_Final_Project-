@@ -40,7 +40,7 @@ class DoctorCard extends StatelessWidget {
                 height: 70,
                 width: 70,
                 fit: BoxFit.cover,
-                errorBuilder: (_, __, ___) => Image.asset(AppImages.doctorTwo),
+                errorBuilder: (_, __, ___) => Image.asset(AppImages.doc7),
               ),
             ),
             const SizedBox(width: 15),

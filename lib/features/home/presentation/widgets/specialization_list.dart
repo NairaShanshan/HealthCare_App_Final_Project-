@@ -21,7 +21,8 @@ class SpecializationList extends StatelessWidget {
 
           return GestureDetector(
             onTap: () {
-              pushTo(context: context, path: Routes.search, extra: spec.name);
+              pushTo(
+                  context: context, path: Routes.speSearch, extra: spec.name);
             },
             child: Container(
               width: 120,
@@ -49,7 +50,7 @@ class SpecializationList extends StatelessWidget {
                     Container(
                       width: double.infinity,
                       height: double.infinity,
-                      color: Colors.black.withOpacity(0.09),
+                      color: Colors.black.withOpacity(0.2),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),

@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:healthcare_app/core/constants/app_images.dart';
 
 import 'package:healthcare_app/features/Booking/presentation/pages/appointment_screen.dart';
 import 'package:healthcare_app/features/Booking/presentation/pages/select_date_and_confirmation_screen.dart';
@@ -35,7 +36,7 @@ class Routes {
   static const String detailedScreen = '/detailed_screen';
   static const String booking = '/screen1';
   static const String selectDate = '/select-date_screen';
-  static const String search = '/specialization_search_screen';
+  static const String speSearch = '/specialization_search_screen';
   static const String doctor = '/doctor_screen';
   static final routes = GoRouter(
     initialLocation: splash,
@@ -82,8 +83,9 @@ class Routes {
                     name: '',
                     rating: 0.0,
                     specialization: '',
-                    image: '',
+                    image: AppImages.doctorTwo,
                     price: 0.0,
+                    id: '',
                   ),
             initialIndex: data?['initialIndex'] as int? ?? 0,
           );
@@ -124,16 +126,30 @@ class Routes {
         },
       ),
       GoRoute(
-          path: search,
+          path: speSearch,
           builder: (context, state) {
             final specialization = state.extra as String;
-            return SpecializationSearchScreen(specialization: specialization);
+            return SpecializationSearchScreen(
+              specialization: specialization,
+            );
           }),
       GoRoute(
         path: doctor,
         builder: (context, state) {
-          final doctor = state.extra as DoctorEntity;
-          return DoctorScreen(doctor: doctor);
+          final data = state.extra as Map<String, dynamic>?;
+
+          return DoctorScreen(
+            doctor: (data != null && data['doctor'] != null)
+                ? data['doctor'] as DoctorEntity
+                : const DoctorEntity(
+                    name: '',
+                    rating: 0.0,
+                    specialization: '',
+                    image: AppImages.doctorTwo,
+                    price: 0.0,
+                    id: '',
+                  ),
+          );
         },
       ),
     ],

@@ -48,16 +48,16 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
               child: const Stack(
                 children: [
                   HomeScreenHeader(),
-                  // Align(
-                  //   alignment: AlignmentGeometry.bottomCenter,
-                  //   child: Padding(
-                  //     padding: EdgeInsets.symmetric(horizontal: 16.0),
-                  //     child: MainTextFormField(
-                  //       hintText: 'Search.......',
-                  //       textInputType: TextInputType.text,
-                  //     ),
-                  //   ),
-                  // ),
+                  Align(
+                    alignment: AlignmentGeometry.bottomCenter,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16.0),
+                      child: MainTextFormField(
+                        hintText: 'Search.......',
+                        textInputType: TextInputType.text,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

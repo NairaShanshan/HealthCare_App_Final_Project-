@@ -53,7 +53,7 @@ class FirestoreService implements RemoteService {
       String specialization) async {
     try {
       return await FirebaseFirestore.instance
-          .collection('doctor') // ← اسم الكولكشن في Firestore
+          .collection('doctor')
           .where('specialization', isEqualTo: specialization)
           .get();
     } catch (e, stackTrace) {

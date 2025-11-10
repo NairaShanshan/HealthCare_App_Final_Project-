@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:healthcare_app/core/constants/app_images.dart';
+import 'package:healthcare_app/core/constants/doctors_images.dart';
 import 'package:healthcare_app/core/routes/navigation.dart';
 import 'package:healthcare_app/core/routes/routes.dart';
 import 'package:healthcare_app/core/utils/app_colors.dart';
@@ -8,6 +9,7 @@ import 'package:healthcare_app/core/utils/text_styles.dart';
 import 'package:healthcare_app/features/Booking/presentation/widgets/doctor_card.dart';
 import 'package:healthcare_app/features/Booking/presentation/widgets/patient_option_card.dart';
 import 'package:healthcare_app/features/home/domain/enitites/doctor_entity.dart';
+import 'package:healthcare_app/features/home/presentation/widgets/detailed_doctor_card.dart';
 
 class AppointmentInfoScreen extends StatefulWidget {
   final DoctorEntity doctor;
@@ -44,7 +46,13 @@ class _AppointmentInfoScreenState extends State<AppointmentInfoScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            DoctorCard(doctor: widget.doctor),
+            // DoctorCard(doctor: widget.doctor),
+            DetailedDoctorCard(
+              imagePath: doctorImages[widget.doctor.id] ?? AppImages.doctorTwo,
+              doctorName: widget.doctor.name,
+              specialty: widget.doctor.specialization,
+              rating: widget.doctor.rating.toDouble(),
+            ),
             const Gap(15),
             Text(
               'Appointment For',

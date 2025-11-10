@@ -1,19 +1,5 @@
-// class DoctorEntity {
-//   final String name;
-//   final num rating;
-//   final String specialization;
-//   final String image;
-
-//   final String price;
-
-//   const DoctorEntity(
-//     this.image, this.price, {
-//     required this.name,
-//     required this.rating,
-//     required this.specialization,
-//   });
-// }
 class DoctorEntity {
+  final String id;
   final String name;
   final double rating;
   final String specialization;
@@ -21,6 +7,7 @@ class DoctorEntity {
   final double price;
 
   const DoctorEntity({
+    required this.id,
     required this.name,
     required this.rating,
     required this.specialization,

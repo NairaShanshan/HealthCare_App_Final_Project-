@@ -1,11 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:healthcare_app/core/constants/app_images.dart';
+import 'package:healthcare_app/core/constants/doctors_images.dart';
 import 'package:healthcare_app/core/routes/navigation.dart';
 import 'package:healthcare_app/core/services/firestore_service.dart';
 import 'package:healthcare_app/core/utils/text_styles.dart';
 import 'package:healthcare_app/core/widgets/main_header.dart';
-import 'package:healthcare_app/features/Booking/presentation/widgets/doctor_card.dart';
 import 'package:healthcare_app/features/home/data/models/doctor_model.dart';
+import 'package:healthcare_app/features/home/presentation/widgets/detailed_doctor_card.dart';
 
 class SpecializationSearchScreen extends StatelessWidget {
   final String specialization;
@@ -44,9 +46,16 @@ class SpecializationSearchScreen extends StatelessWidget {
                           doctor.specialization == null) {
                         return const SizedBox();
                       }
-                      return DoctorCard(
-                        doctor: doctor,
-                      );
+                      String imagePath =
+                          doctorImages[doctor.id] ?? AppImages.doc7;
+                      // return DoctorCard(
+                      //   doctor: doctor,
+                      // );
+                      return DetailedDoctorCard(
+                          imagePath: imagePath,
+                          doctorName: doctor.name,
+                          specialty: doctor.specialization,
+                          rating: doctor.rating);
                     },
                   ),
                 );
@@ -68,13 +77,13 @@ class EmptyWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/icons/no-search.svg',
+              AppImages.no_search,
               width: 200,
             ),
             const SizedBox(height: 24),
             Text(
               "No doctors found in this specialty.",
-              style: TextStyles.textStyles25.copyWith(
+              style: TextStyles.textStyles22.copyWith(
                 color: Colors.grey[600],
               ),
               textAlign: TextAlign.center,
