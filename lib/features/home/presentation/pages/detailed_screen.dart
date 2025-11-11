@@ -49,9 +49,7 @@ class DetailedScreen extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 16.0),
                       child: DetailedDoctorCard(
                         imagePath: AppImages.doctorOne,
-                        doctorName: popularDoctor[index].name,
-                        specialty: popularDoctor[index].specialization,
-                        rating: popularDoctor[index].rating,
+                        doctorEntity: popularDoctor[index],
                       ),
                     );
                   },
