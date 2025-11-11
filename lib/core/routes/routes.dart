@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:healthcare_app/core/constants/app_images.dart';
 
 import 'package:healthcare_app/features/Booking/presentation/pages/appointment_screen.dart';
 import 'package:healthcare_app/features/Booking/presentation/pages/select_date_and_confirmation_screen.dart';
@@ -9,6 +10,7 @@ import 'package:healthcare_app/features/auth/presentation/pages/signin_screen.da
 import 'package:healthcare_app/features/auth/presentation/pages/signup_screen.dart';
 import 'package:healthcare_app/features/doctor/page/doctor_screen.dart';
 import 'package:healthcare_app/features/home/domain/enitites/doctor_entity.dart';
+import 'package:healthcare_app/features/home/presentation/pages/doctor_detail_screen.dart';
 
 import 'package:healthcare_app/features/main/main_screen.dart';
 import 'package:healthcare_app/features/onboarding/onboarding_screen.dart';
@@ -37,6 +39,7 @@ class Routes {
   static const String selectDate = '/select-date_screen';
   static const String search = '/search';
   static const String doctorScreen = '/doctorScreen';
+  static const String doctorDetailScreen = '/doctorDetailScreen';
 
   static final routes = GoRouter(
     initialLocation: splash,
@@ -103,6 +106,13 @@ class Routes {
       GoRoute(
         path: doctorScreen,
         builder: (context, state) => const DoctorScreen(),
+      ),
+      GoRoute(
+        path: doctorDetailScreen,
+        builder: (context, state) => DoctorDetailScreen(
+          imagePath: AppImages.profileImage,
+          doctorEntity: state.extra as DoctorEntity,
+        ),
       ),
     ],
   );

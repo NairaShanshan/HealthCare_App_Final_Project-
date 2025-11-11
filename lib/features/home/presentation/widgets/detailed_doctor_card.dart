@@ -5,19 +5,16 @@ import 'package:healthcare_app/core/routes/navigation.dart';
 import 'package:healthcare_app/core/routes/routes.dart';
 import 'package:healthcare_app/core/utils/app_colors.dart';
 import 'package:healthcare_app/core/widgets/main_button.dart';
+import 'package:healthcare_app/features/home/domain/enitites/doctor_entity.dart';
 
 class DetailedDoctorCard extends StatelessWidget {
   final String imagePath;
-  final String doctorName;
-  final String specialty;
-  final num rating;
+  final DoctorEntity doctorEntity;
 
   const DetailedDoctorCard({
     super.key,
     required this.imagePath,
-    required this.doctorName,
-    required this.specialty,
-    required this.rating,
+    required this.doctorEntity,
   });
 
   @override
@@ -48,7 +45,7 @@ class DetailedDoctorCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  doctorName,
+                  doctorEntity.name,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
@@ -59,22 +56,20 @@ class DetailedDoctorCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 6),
                 Text(
-                  specialty,
+                  doctorEntity.specialization,
                   style: const TextStyle(
                     fontSize: 13,
                     color: AppColors.greyColor,
                   ),
                 ),
                 const Gap(5),
-
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     createRatingRow(
                       context: context,
-                      rating: rating,
+                      rating: doctorEntity.rating,
                     ),
-
 
                     // Text.rich(
                     //   textAlign: TextAlign.right,
@@ -98,7 +93,7 @@ class DetailedDoctorCard extends StatelessWidget {
                     //   ]),
                     // )
                   ],
-                ) ,
+                ),
                 const Gap(10),
                 MainButton(
                     borderRadius: BorderRadius.circular(3),
@@ -106,9 +101,11 @@ class DetailedDoctorCard extends StatelessWidget {
                     height: 33,
                     text: 'Book Now',
                     onPressed: () {
-                      pushTo(context: context, path: Routes.doctorScreen);
+                      pushTo(
+                        context: context,
+                        path: Routes.doctorScreen,
+                      );
                     })
-
               ],
             ),
           ),

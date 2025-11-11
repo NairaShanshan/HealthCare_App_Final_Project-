@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:healthcare_app/core/services/doctor_services.dart';
 import 'package:healthcare_app/core/utils/app_colors.dart';
+import 'package:healthcare_app/features/home/data/models/doctor_model.dart';
+
 
 import '../../../core/constants/app_images.dart';
 import '../../home/presentation/widgets/detailed_doctor_card.dart';
@@ -23,24 +25,29 @@ class _SearchListState extends State<SearchList> {
       future: DoctorService.searchDoctorsByName(widget.searchKey),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (!snapshot.hasData) {
-          return const  Center(child: CircularProgressIndicator(color: AppColors.primaryColor,));
+          return const Center(
+              child: CircularProgressIndicator(
+            color: AppColors.primaryColor,
+          ));
         }
         return snapshot.data!.docs.isEmpty
             ? const Center(child: Text("No doctors found"))
             : ListView.separated(
                 itemBuilder: (context, index) {
                   final doc = snapshot.data!.docs[index];
-
                   return DetailedDoctorCard(
-                    doctorName: doc['name'],
-                    specialty: doc['specialization'],
-                    rating: doc['rating'],
+                    doctorEntity:
+                        DoctorModel.fromJson(doc.data() as Map<String, dynamic>)
+                            .toEntity(),
                     imagePath: AppImages.doctorOne,
                   );
                 },
-                separatorBuilder: (context ,index ) => const Gap(10),
+                separatorBuilder: (context, index) => const Gap(10),
                 itemCount: snapshot.data!.docs.length);
       },
     );
   }
 }
+  // doctorName: doc['name'],
+  //                   specialty: doc['specialization'],
+  //                   rating: doc['rating'],
