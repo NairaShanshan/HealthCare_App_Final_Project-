@@ -238,8 +238,8 @@ class DetailedDoctorCard extends StatelessWidget {
                           name: doctorName,
                           specialization: specialty,
                           rating: rating,
-                          image: imagePath,
-                          price: 0.0,
+                          imagePath: imagePath,
+                          price: "",
                           id: '',
                         )
                       },

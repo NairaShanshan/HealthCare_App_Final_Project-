@@ -81,10 +81,10 @@ class Routes {
                 ? data['doctor'] as DoctorEntity
                 : const DoctorEntity(
                     name: '',
-                    rating: 0.0,
+                    rating: 3.0,
                     specialization: '',
-                    image: AppImages.doctorTwo,
-                    price: 0.0,
+                    imagePath: AppImages.doc7,
+                    price: "330",
                     id: '',
                   ),
             initialIndex: data?['initialIndex'] as int? ?? 0,
@@ -118,13 +118,19 @@ class Routes {
         path: selectDate,
         builder: (context, state) {
           final data = state.extra as Map<String, dynamic>?;
+
+          if (data == null || data['doctor'] == null) {
+            throw Exception('DoctorEntity must not be null');
+          }
+
           return SelectDateScreen(
-            doctorName: data?['doctorName'] ?? 'Dr. Ahmed ',
-            initialDate: data?['date'],
-            initialTime: data?['time'],
+            doctor: data['doctor'] as DoctorEntity,
+            initialDate: data['date'],
+            initialTime: data['time'],
           );
         },
       ),
+
       GoRoute(
           path: speSearch,
           builder: (context, state) {
@@ -142,11 +148,11 @@ class Routes {
             doctor: (data != null && data['doctor'] != null)
                 ? data['doctor'] as DoctorEntity
                 : const DoctorEntity(
-                    name: '',
+                    name: 'unkwon',
                     rating: 0.0,
-                    specialization: '',
-                    image: AppImages.doctorTwo,
-                    price: 0.0,
+                    specialization: 'unkwon',
+                    imagePath: AppImages.doc7,
+                    price: "440",
                     id: '',
                   ),
           );

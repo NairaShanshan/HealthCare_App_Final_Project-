@@ -36,7 +36,7 @@ class DoctorCard extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Image.asset(
-                doctor.image,
+                doctor.imagePath,
                 height: 70,
                 width: 70,
                 fit: BoxFit.cover,

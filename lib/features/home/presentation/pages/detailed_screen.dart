@@ -51,7 +51,9 @@ class DetailedScreen extends StatelessWidget {
                         imagePath: AppImages.doctorOne,
                         doctorName: popularDoctor[index].name,
                         specialty: popularDoctor[index].specialization,
-                        rating: popularDoctor[index].rating,
+                        rating: double.tryParse(
+                                popularDoctor[index].rating.toString()) ??
+                            0.0,
                       ),
                     );
                   },

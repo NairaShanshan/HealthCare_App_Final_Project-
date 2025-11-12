@@ -5,9 +5,13 @@ import 'package:healthcare_app/features/Booking/presentation/widgets/confirmatio
 import 'package:healthcare_app/features/Booking/presentation/widgets/date_picker_card.dart';
 import 'package:healthcare_app/features/Booking/presentation/widgets/primary_button.dart';
 import 'package:healthcare_app/features/Booking/presentation/widgets/reminder_time_selector.dart';
+import 'package:healthcare_app/features/home/domain/enitites/doctor_entity.dart';
 
 class SelectDateScreen extends StatefulWidget {
-  final String doctorName;
+  final DoctorEntity doctor;
+ 
+
+  
   final DateTime? initialDate;
   final String? initialTime;
 
@@ -15,7 +19,8 @@ class SelectDateScreen extends StatefulWidget {
     super.key,
     this.initialDate,
     this.initialTime,
-    required this.doctorName,
+   
+    required this.doctor,
   });
 
   @override
@@ -121,8 +126,8 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
                                 context: context,
                                 barrierDismissible: false,
                                 builder: (context) => ConfirmationDialog(
-                                  doctorName: widget.doctorName,
-                                  speciality: 'Dermatologist',
+                                  doctorName: widget.doctor.name,
+                                  speciality: widget.doctor.specialization,
                                   date: _selectedDay ?? _focusedDay,
                                   time: availableTimes[selectedTimeIndex!],
                                 ),

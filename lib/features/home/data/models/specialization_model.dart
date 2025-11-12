@@ -1,5 +1,3 @@
-// models/specialization_model.dart
-
 class Specialization {
   final String name;
   final String image;

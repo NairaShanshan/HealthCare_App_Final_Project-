@@ -41,5 +41,5 @@ class AppImages {
   static const String doc7 = 'assets/images/doc7.png';
   static const String doc8 = 'assets/images/doc8.png';
   static const String doc9 = 'assets/images/doc9.png';
-  static const String doc10 = 'assets/images//doc10.png';
+  static const String doc10 = 'assets/images/doc10.png';
 }

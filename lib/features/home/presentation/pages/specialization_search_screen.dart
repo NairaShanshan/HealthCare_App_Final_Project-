@@ -38,24 +38,25 @@ class SpecializationSearchScreen extends StatelessWidget {
                     physics: const ClampingScrollPhysics(),
                     itemCount: snapshot.data?.docs.length,
                     itemBuilder: (context, index) {
-                      DoctorModel doctor = DoctorModel.fromJson(
-                        snapshot.data!.docs[index].data()
-                            as Map<String, dynamic>,
-                      );
+                      final docData = snapshot.data!.docs[index].data();
+                      if (docData == null) return const SizedBox();
+
+                      final doctorMap =
+                          Map<String, dynamic>.from(docData as Map);
+                      final id = snapshot.data!.docs[index].id;
+                      DoctorModel doctor = DoctorModel.fromJson(doctorMap, id);
                       if (doctor.specialization == '' ||
                           doctor.specialization == null) {
                         return const SizedBox();
                       }
-                      String imagePath =
-                          doctorImages[doctor.id] ?? AppImages.doc7;
-                      // return DoctorCard(
-                      //   doctor: doctor,
-                      // );
+
                       return DetailedDoctorCard(
-                          imagePath: imagePath,
-                          doctorName: doctor.name,
-                          specialty: doctor.specialization,
-                          rating: doctor.rating);
+                        imagePath: DoctorImages.getDoctorImage(id),
+                        doctorName: doctor.name,
+                        specialty: doctor.specialization,
+                        rating:
+                            double.tryParse(doctor.rating.toString()) ?? 2.0,
+                      );
                     },
                   ),
                 );

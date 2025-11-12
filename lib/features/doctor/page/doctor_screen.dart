@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:healthcare_app/core/constants/app_images.dart';
-import 'package:healthcare_app/core/constants/doctors_images.dart';
 import 'package:healthcare_app/core/routes/navigation.dart';
 import 'package:healthcare_app/core/routes/routes.dart';
 import 'package:healthcare_app/core/utils/app_colors.dart';
@@ -9,7 +7,6 @@ import 'package:healthcare_app/core/utils/text_styles.dart';
 import 'package:healthcare_app/core/widgets/main_button.dart';
 import 'package:healthcare_app/core/widgets/main_header.dart';
 import 'package:healthcare_app/features/home/domain/enitites/doctor_entity.dart';
-import 'package:healthcare_app/features/home/presentation/widgets/detailed_doctor_card.dart';
 
 import '../../Booking/presentation/widgets/doctor_card.dart';
 
@@ -34,12 +31,13 @@ class DoctorScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              DetailedDoctorCard(
-                imagePath: doctorImages[doctor.id] ?? AppImages.doc7,
-                doctorName: doctor.name,
-                specialty: doctor.specialization,
-                rating: doctor.rating.toDouble(),
-              ),
+              // DetailedDoctorCard(
+              //   imagePath: doctor.imagePath ,
+              //   doctorName: doctor.name,
+              //   specialty: doctor.specialization,
+              //   rating: doctor.rating.toDouble(),
+              // ),
+              DoctorCard(doctor: doctor),
               const Gap(30),
               MainButton(
                   text: 'Book Now',
