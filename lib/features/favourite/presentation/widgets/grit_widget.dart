@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
+import 'package:healthcare_app/core/cubit/favourite_doctors_cubit/favourite_doctors_cubit.dart';
 import 'package:healthcare_app/core/utils/app_colors.dart';
 import 'package:healthcare_app/core/utils/text_styles.dart';
 
@@ -15,12 +17,10 @@ class GridContainerWidget extends StatelessWidget {
   final String doctorName;
   final String specialty;
 
-
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(8),
-
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: AppColors.accentColor,
@@ -31,7 +31,11 @@ class GridContainerWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () async {
+                  await context
+                      .read<FavouriteDoctorsCubit>()
+                      .removeFromFavourites(doctorName);
+                },
                 icon: const Icon(
                   Icons.favorite,
                   color: Colors.red,
@@ -60,4 +64,3 @@ class GridContainerWidget extends StatelessWidget {
     );
   }
 }
-
