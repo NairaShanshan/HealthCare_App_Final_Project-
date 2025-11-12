@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:healthcare_app/features/doctor/page/doctor_screen.dart';
 import 'package:healthcare_app/features/favourite/presentation/pages/favourite_screen.dart';
 import 'package:healthcare_app/features/home/domain/enitites/doctor_entity.dart';
-
 import 'package:healthcare_app/features/home/presentation/widgets/custom_bottom_nav_bar.dart';
 
 import '../home/presentation/pages/home_screen.dart';
