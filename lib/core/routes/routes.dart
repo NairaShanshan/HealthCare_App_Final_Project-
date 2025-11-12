@@ -105,7 +105,10 @@ class Routes {
       ),
       GoRoute(
         path: doctorScreen,
-        builder: (context, state) => const DoctorScreen(),
+        builder: (context, state) => DoctorScreen(
+          doctorEntity: state.extra as DoctorEntity,
+          imagePath: '',
+        ),
       ),
       GoRoute(
         path: doctorDetailScreen,
