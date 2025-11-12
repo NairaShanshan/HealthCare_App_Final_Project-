@@ -22,7 +22,7 @@ class DoctorCard extends StatelessWidget {
       onTap: () {
         pushTo(
           context: context,
-          path: Routes.doctorDetailScreen,
+          path: Routes.doctorScreen,
           extra: doctorEntity,
         );
       },
