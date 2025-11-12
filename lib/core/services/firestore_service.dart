@@ -41,11 +41,26 @@ class FirestoreService implements RemoteService {
   }
 
   @override
+  Stream<bool> isDoctorFavouriteStream({
+    required String path,
+    required String docId,
+  }) {
+    return firebaseFirestore.collection(path).doc(docId).snapshots().map(
+          (doc) => doc.exists,
+        );
+  }
+
+  @override
   Future<bool> checkIfDataExists({
     required String path,
     required String id,
   }) async {
     var data = await firebaseFirestore.collection(path).doc(id).get();
     return data.exists;
+  }
+
+  @override
+  Future<void> removeData({required String path, required String id}) async {
+    await firebaseFirestore.collection(path).doc(id).delete();
   }
 }

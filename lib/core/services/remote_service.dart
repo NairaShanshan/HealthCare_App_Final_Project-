@@ -10,8 +10,16 @@ abstract class RemoteService {
     String? id,
     Map<String, dynamic>? query,
   });
-
+  Stream<bool> isDoctorFavouriteStream({
+    required String path,
+    required String docId,
+  });
   Future<bool> checkIfDataExists({
+    required String path,
+    required String id,
+  });
+
+  Future<void> removeData({
     required String path,
     required String id,
   });
