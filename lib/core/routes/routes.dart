@@ -10,6 +10,7 @@ import 'package:healthcare_app/features/auth/presentation/pages/signin_screen.da
 import 'package:healthcare_app/features/auth/presentation/pages/signup_screen.dart';
 import 'package:healthcare_app/features/doctor/page/doctor_screen.dart';
 import 'package:healthcare_app/features/home/domain/enitites/doctor_entity.dart';
+import 'package:healthcare_app/features/home/presentation/pages/specialization_search_screen.dart';
 import 'package:healthcare_app/features/home/presentation/pages/doctor_detail_screen.dart';
 
 import 'package:healthcare_app/features/main/main_screen.dart';
@@ -37,6 +38,8 @@ class Routes {
   static const String detailedScreen = '/detailed_screen';
   static const String booking = '/screen1';
   static const String selectDate = '/select-date_screen';
+  static const String speSearch = '/specialization_search_screen';
+  static const String doctor = '/doctor_screen';
   static const String search = '/search';
   static const String doctorScreen = '/doctorScreen';
   static const String doctorDetailScreen = '/doctorDetailScreen';
@@ -63,12 +66,38 @@ class Routes {
         builder: (context, state) => BlocProvider(
             create: (context) => AuthCubit(), child: const SignupScreen()),
       ),
+      // GoRoute(
+      //   path: main,
+      //   builder: (context, state) {
+      //     final data = state.extra as Map<String, dynamic>?;
+      //     return MainAppScreen(
+      //       doctor: data?['doctor'] as DoctorEntity,
+      //       initialIndex: data?['initialIndex'] as int?,
+      //     );
+      //   },
+      // ),
+
       GoRoute(
         path: main,
-        builder: (context, state) => MainAppScreen(
-          initialIndex: state.extra as int?,
-        ),
+        builder: (context, state) {
+          final data = state.extra as Map<String, dynamic>?;
+
+          return MainAppScreen(
+            doctor: (data != null && data['doctor'] != null)
+                ? data['doctor'] as DoctorEntity
+                : const DoctorEntity(
+                    name: '',
+                    rating: 3.0,
+                    specialization: '',
+                    imagePath: AppImages.doc7,
+                    price: "330",
+                    id: '',
+                  ),
+            initialIndex: data?['initialIndex'] as int? ?? 0,
+          );
+        },
       ),
+
       GoRoute(
         path: editProfile,
         builder: (context, state) => const EditProfileScreen(),
@@ -90,16 +119,54 @@ class Routes {
       ),
       GoRoute(
         path: booking,
-        builder: (context, state) => const AppointmentInfoScreen(),
+        builder: (context, state) {
+          final doctor = state.extra as DoctorEntity;
+          return AppointmentInfoScreen(
+            doctor: doctor,
+          );
+        },
       ),
       GoRoute(
         path: selectDate,
         builder: (context, state) {
           final data = state.extra as Map<String, dynamic>?;
+
+          if (data == null || data['doctor'] == null) {
+            throw Exception('DoctorEntity must not be null');
+          }
+
           return SelectDateScreen(
-            doctorName: data?['doctorName'] ?? 'Dr. Ahmed ',
-            initialDate: data?['date'],
-            initialTime: data?['time'],
+            doctor: data['doctor'] as DoctorEntity,
+            initialDate: data['date'],
+            initialTime: data['time'],
+          );
+        },
+      ),
+
+      GoRoute(
+          path: speSearch,
+          builder: (context, state) {
+            final specialization = state.extra as String;
+            return SpecializationSearchScreen(
+              specialization: specialization,
+            );
+          }),
+      GoRoute(
+        path: doctor,
+        builder: (context, state) {
+          final data = state.extra as Map<String, dynamic>?;
+
+          return DoctorScreen(
+            doctor: (data != null && data['doctor'] != null)
+                ? data['doctor'] as DoctorEntity
+                : const DoctorEntity(
+                    name: 'unkwon',
+                    rating: 0.0,
+                    specialization: 'unkwon',
+                    imagePath: AppImages.doc7,
+                    price: "440",
+                    id: '',
+                  ),
           );
         },
       ),

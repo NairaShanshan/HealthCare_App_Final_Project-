@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:healthcare_app/core/constants/app_images.dart';
 import 'package:healthcare_app/core/routes/navigation.dart';
 import 'package:healthcare_app/core/routes/routes.dart';
 import 'package:healthcare_app/core/utils/app_colors.dart';
 import 'package:healthcare_app/core/utils/text_styles.dart';
 import 'package:healthcare_app/core/widgets/main_button.dart';
+import 'package:healthcare_app/core/widgets/main_header.dart';
 import 'package:healthcare_app/features/home/domain/enitites/doctor_entity.dart';
 
 import '../../Booking/presentation/widgets/doctor_card.dart';
 
 class DoctorScreen extends StatelessWidget {
+  final DoctorEntity doctor;
+  const DoctorScreen({super.key, required this.doctor});
   const DoctorScreen({
     super.key,
     required this.doctorEntity,
@@ -24,6 +26,12 @@ class DoctorScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: MainHeader(
+            title: 'Doctor Details',
+            onBackButtonPressed: () {
+              pop(context);
+            }),
         title: const Text('Doctor Details '),
         centerTitle: true,
       ),
@@ -33,6 +41,19 @@ class DoctorScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // DetailedDoctorCard(
+              //   imagePath: doctor.imagePath ,
+              //   doctorName: doctor.name,
+              //   specialty: doctor.specialization,
+              //   rating: doctor.rating.toDouble(),
+              // ),
+              DoctorCard(doctor: doctor),
+              const Gap(30),
+              MainButton(
+                  text: 'Book Now',
+                  onPressed: () {
+                    pushTo(
+                        context: context, path: Routes.booking, extra: doctor);
               DoctorCard(
                 name: doctorEntity.name,
                 specialty: doctorEntity.specialization,

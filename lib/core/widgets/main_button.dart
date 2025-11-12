@@ -11,6 +11,8 @@ class MainButton extends StatelessWidget {
     this.height = 56,
     this.borderColor,
     this.bgcolor = AppColors.primaryColor,
+    this.textColor = AppColors.backgroundColor,
+    this.borderRadius = const BorderRadius.all(Radius.circular(30)),
     this.textColor = AppColors.backgroundColor,  this.borderRadius = const BorderRadius.all(Radius.circular(30)),
   });
 
@@ -21,6 +23,7 @@ class MainButton extends StatelessWidget {
   final double height;
   final Color? borderColor;
   final Color textColor;
+  final BorderRadiusGeometry borderRadius;
   final BorderRadiusGeometry borderRadius ;
   @override
   Widget build(BuildContext context) {
@@ -34,6 +37,7 @@ class MainButton extends StatelessWidget {
                 borderColor != null ? AppColors.darkColor : Colors.transparent,
           ),
           backgroundColor: bgcolor,
+          shape: RoundedRectangleBorder(borderRadius: borderRadius),
           shape:
               RoundedRectangleBorder(borderRadius: borderRadius),
         ),

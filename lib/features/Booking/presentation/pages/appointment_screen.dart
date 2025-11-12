@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:healthcare_app/core/constants/app_images.dart';
+import 'package:healthcare_app/core/helper/app_regex.dart';
 import 'package:healthcare_app/core/routes/navigation.dart';
 import 'package:healthcare_app/core/routes/routes.dart';
 import 'package:healthcare_app/core/utils/app_colors.dart';
 import 'package:healthcare_app/core/utils/text_styles.dart';
+import 'package:healthcare_app/core/widgets/main_text_form_field.dart';
 import 'package:healthcare_app/features/Booking/presentation/widgets/doctor_card.dart';
 import 'package:healthcare_app/features/Booking/presentation/widgets/patient_option_card.dart';
+import 'package:healthcare_app/features/home/domain/enitites/doctor_entity.dart';
 
 class AppointmentInfoScreen extends StatefulWidget {
-  const AppointmentInfoScreen({super.key});
+  final DoctorEntity doctor;
+  const AppointmentInfoScreen({super.key, required this.doctor});
 
   @override
   State<AppointmentInfoScreen> createState() => _AppointmentInfoScreenState();
@@ -42,14 +46,14 @@ class _AppointmentInfoScreenState extends State<AppointmentInfoScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const DoctorCard(
-              name: 'Dr. Pediatrician',
-              specialty: 'Specialist Cardiologist',
-              price: '\$28.00/hr',
-              rating: 4.9,
-              image: AppImages.doctorTwo,
-              isFavorite: false,
-            ),
+            DoctorCard(doctor: widget.doctor),
+            // DetailedDoctorCard(
+            //   imagePath: widget.doctor
+            //       .imagePath, //doctorImages[widget.doctor.id] ?? AppImages.doctorTwo,
+            //   doctorName: widget.doctor.name,
+            //   specialty: widget.doctor.specialization,
+            //   rating: widget.doctor.rating.toDouble(),
+            // ),
             const Gap(15),
             Text(
               'Appointment For',
@@ -58,25 +62,51 @@ class _AppointmentInfoScreenState extends State<AppointmentInfoScreen> {
               ),
             ),
             const Gap(10),
-            TextField(
+            // TextField(
+            //   controller: nameController,
+            //   decoration: InputDecoration(
+            //     hintText: 'Patient Name',
+            //     border: OutlineInputBorder(
+            //       borderRadius: BorderRadius.circular(12),
+            //     ),
+            //   ),
+            // ),
+            MainTextFormField(
               controller: nameController,
-              decoration: InputDecoration(
-                hintText: 'Patient Name',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
+              hintText: 'Patient Name',
+              textInputType: TextInputType.name,
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Please Enter Patient Name';
+                } else {
+                  return null;
+                }
+              },
             ),
             const Gap(12),
-            TextField(
+            // TextField(
+            //   controller: phoneController,
+            //   keyboardType: TextInputType.phone,
+            //   decoration: InputDecoration(
+            //     hintText: 'Contact Number',
+            //     border: OutlineInputBorder(
+            //       borderRadius: BorderRadius.circular(12),
+            //     ),
+            //   ),
+            // ),
+            MainTextFormField(
               controller: phoneController,
-              keyboardType: TextInputType.phone,
-              decoration: InputDecoration(
-                hintText: 'Contact Number',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
+              hintText: 'Contact Number',
+              textInputType: TextInputType.phone,
+              validator: (value) {
+                if (value!.isEmpty) {
+                  return 'Please Enter Patient Name';
+                } else if (!AppRegex.isEgyptMobile(value)) {
+                  return 'Please enter a valid phone number.';
+                } else {
+                  return null;
+                }
+              },
             ),
             const Gap(15),
             Text(
@@ -109,7 +139,15 @@ class _AppointmentInfoScreenState extends State<AppointmentInfoScreen> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  pushTo(context: context, path: Routes.selectDate);
+                  pushTo(
+                    context: context,
+                    path: Routes.selectDate,
+                    extra: {
+                      'doctor': widget.doctor,
+                      'date': null,
+                      'time': null,
+                    },
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primaryColor,

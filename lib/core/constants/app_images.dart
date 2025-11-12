@@ -31,4 +31,16 @@ class AppImages {
   static const String child = 'assets/images/child.png';
   static const String wife = 'assets/images/wife.png';
   static const String parents = 'assets/images/parents 2.png';
+  static const String no_search = 'assets/icons/no-search.png';
+
+  static const String doc1 = 'assets/images/doc1.png';
+  static const String doc2 = 'assets/images/doc2.png';
+  static const String doc3 = 'assets/images/doc3.png';
+  static const String doc4 = 'assets/images/doc4.png';
+  static const String doc5 = 'assets/images/doc5.png';
+  static const String doc6 = 'assets/images/doc6.png';
+  static const String doc7 = 'assets/images/doc7.png';
+  static const String doc8 = 'assets/images/doc8.png';
+  static const String doc9 = 'assets/images/doc9.png';
+  static const String doc10 = 'assets/images/doc10.png';
 }
