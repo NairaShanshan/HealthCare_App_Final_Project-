@@ -71,5 +71,6 @@ class FavouriteDoctorsCubit extends Cubit<FavouriteDoctorsState> {
 
   Future<void> removeFromFavourites(String doctorId) async {
     await doctorsRepository.removeFromFavourites(id: doctorId);
+    getFavouriteDoctors();
   }
 }
