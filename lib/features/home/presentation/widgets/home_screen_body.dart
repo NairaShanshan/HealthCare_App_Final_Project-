@@ -11,7 +11,6 @@ import 'package:healthcare_app/features/home/presentation/widgets/category_items
 import 'package:healthcare_app/features/home/presentation/widgets/health_artical_view.dart';
 import 'package:healthcare_app/features/home/presentation/widgets/home_screen_header.dart';
 import 'package:healthcare_app/features/home/presentation/widgets/popular_doctors_view_bloc_builder.dart';
-import 'package:healthcare_app/features/home/presentation/widgets/specialization_list.dart';
 
 class HomeScreenBody extends StatefulWidget {
   const HomeScreenBody({
@@ -74,9 +73,9 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
               padding:
                   const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
               child: SizedBox(
-                  height: height / 7.7,
-                  //child: const CategoryItemsView(),
-                  child: const SpecializationList()),
+                height: height / 7.7,
+                child: const CategoryItemsView(),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(
