@@ -11,10 +11,12 @@ import 'package:healthcare_app/features/auth/presentation/pages/signup_screen.da
 import 'package:healthcare_app/features/doctor/page/doctor_screen.dart';
 import 'package:healthcare_app/features/home/domain/enitites/doctor_entity.dart';
 import 'package:healthcare_app/features/home/presentation/pages/specialization_search_screen.dart';
+import 'package:healthcare_app/features/home/presentation/pages/doctor_detail_screen.dart';
 
 import 'package:healthcare_app/features/main/main_screen.dart';
 import 'package:healthcare_app/features/onboarding/onboarding_screen.dart';
 import 'package:healthcare_app/features/profile/presentation/pages/edit_profile.dart';
+import 'package:healthcare_app/features/search/page/search_screen.dart';
 
 import 'package:healthcare_app/features/splash/splash_screen.dart';
 import 'package:healthcare_app/features/welcome/welcome_screen.dart';
@@ -38,6 +40,10 @@ class Routes {
   static const String selectDate = '/select-date_screen';
   static const String speSearch = '/specialization_search_screen';
   static const String doctor = '/doctor_screen';
+  static const String search = '/search';
+  static const String doctorScreen = '/doctorScreen';
+  static const String doctorDetailScreen = '/doctorDetailScreen';
+
   static final routes = GoRouter(
     initialLocation: splash,
     routes: [
@@ -106,6 +112,12 @@ class Routes {
         },
       ),
       GoRoute(
+        path: search,
+        builder: (context, state) {
+          return const SearchScreen();
+        },
+      ),
+      GoRoute(
         path: booking,
         builder: (context, state) {
           final doctor = state.extra as DoctorEntity;
@@ -157,6 +169,20 @@ class Routes {
                   ),
           );
         },
+      ),
+      GoRoute(
+        path: doctorScreen,
+        builder: (context, state) => DoctorScreen(
+          doctorEntity: state.extra as DoctorEntity,
+          imagePath: '',
+        ),
+      ),
+      GoRoute(
+        path: doctorDetailScreen,
+        builder: (context, state) => DoctorDetailScreen(
+          imagePath: AppImages.profileImage,
+          doctorEntity: state.extra as DoctorEntity,
+        ),
       ),
     ],
   );

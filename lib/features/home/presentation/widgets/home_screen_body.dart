@@ -24,6 +24,7 @@ class HomeScreenBody extends StatefulWidget {
 
 class _HomeScreenBodyState extends State<HomeScreenBody> {
   List<DoctorEntity> popularDoctors = [];
+
   @override
   void initState() {
     // TODO: implement initState
@@ -45,19 +46,27 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
           children: [
             SizedBox(
               height: height / 3.6,
-              child: const Stack(
+              child: Stack(
                 children: [
-                  HomeScreenHeader(),
+                  const HomeScreenHeader(),
                   Align(
-                    alignment: AlignmentGeometry.bottomCenter,
+                    alignment: Alignment.bottomCenter,
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16.0),
-                      child: MainTextFormField(
-                        hintText: 'Search.......',
-                        textInputType: TextInputType.text,
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(15),
+                        onTap: () {
+                          pushTo(context: context, path: Routes.search , extra: '' );
+                        },
+                        child:const  AbsorbPointer(
+                          child: MainTextFormField(
+                            hintText: 'Search.......',
+                            textInputType: TextInputType.text,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
+                  )
                 ],
               ),
             ),

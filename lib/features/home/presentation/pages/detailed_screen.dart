@@ -54,6 +54,7 @@ class DetailedScreen extends StatelessWidget {
                         rating: double.tryParse(
                                 popularDoctor[index].rating.toString()) ??
                             0.0,
+                        doctorEntity: popularDoctor[index],
                       ),
                     );
                   },

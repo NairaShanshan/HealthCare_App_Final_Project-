@@ -9,6 +9,12 @@ class DoctorModel extends DoctorEntity {
       required super.id,
       required super.imagePath,
       required super.price});
+  DoctorModel({
+    required super.name,
+    required super.rating,
+    required super.specialization,
+    required super.price,
+  });
 
   factory DoctorModel.fromJson(Map<String, dynamic> json, String id) {
     return DoctorModel(
@@ -22,6 +28,10 @@ class DoctorModel extends DoctorEntity {
               : json['imagePath'],
       price: json['price'].toString(),
     );
+        name: json['name'],
+        rating: json['rating'],
+        specialization: json['specialization'],
+        price: json['price']);
   }
 
   factory DoctorModel.fromEntity(DoctorEntity doctor) {

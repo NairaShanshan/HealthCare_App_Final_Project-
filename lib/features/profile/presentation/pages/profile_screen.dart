@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
@@ -31,15 +32,15 @@ class ProfileScreen extends StatelessWidget {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(40),
                     child: Image.asset(
-                      AppImages.userImage,
+                      AppImages.noProfileImage,
                       width: 80,
                       height: 80,
                       fit: BoxFit.cover,
                     ),
                   ),
                   const Gap(20),
-                  const Text(
-                    'UserName',
+                   Text(
+                     FirebaseAuth.instance.currentUser?.displayName ?? 'User',
                     style: TextStyles.textStyles20,
                   )
                 ],
@@ -47,14 +48,26 @@ class ProfileScreen extends StatelessWidget {
               const Gap(20),
               ContainerWidget(name: 'My Doctors' , onTap: (){
                 // push Replacement to favourite screen
-                context.push(Routes.main, extra: 1);
+                context.pushReplacement(Routes.main, extra: 1);
+
               },) ,
               const Gap(20),
               ContainerWidget(name: 'My Appointment' , onTap: (){
                 //push Replacement to  Appointment screen
+                context.pushReplacement(Routes.main, extra: 2);
               }) ,
               const Gap(20),
               ContainerWidget(name: 'Edit Profile' , onTap: ()
+              {
+                pushTo(context:  context,path:  Routes.editProfile) ;
+              },) ,
+              const Gap(20),
+              ContainerWidget(name: 'Help Center' , onTap: ()
+              {
+                pushTo(context:  context,path:  Routes.editProfile) ;
+              },) ,
+              const Gap(20),
+              ContainerWidget(name: 'Setting' , onTap: ()
               {
                 pushTo(context:  context,path:  Routes.editProfile) ;
               },) ,

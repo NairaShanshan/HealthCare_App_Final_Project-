@@ -13,6 +13,14 @@ import '../../Booking/presentation/widgets/doctor_card.dart';
 class DoctorScreen extends StatelessWidget {
   final DoctorEntity doctor;
   const DoctorScreen({super.key, required this.doctor});
+  const DoctorScreen({
+    super.key,
+    required this.doctorEntity,
+    required this.imagePath,
+  });
+
+  final DoctorEntity doctorEntity;
+  final String imagePath;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +32,8 @@ class DoctorScreen extends StatelessWidget {
             onBackButtonPressed: () {
               pop(context);
             }),
+        title: const Text('Doctor Details '),
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -44,6 +54,20 @@ class DoctorScreen extends StatelessWidget {
                   onPressed: () {
                     pushTo(
                         context: context, path: Routes.booking, extra: doctor);
+              DoctorCard(
+                name: doctorEntity.name,
+                specialty: doctorEntity.specialization,
+                price: '\$${doctorEntity.price}',
+                rating: doctorEntity.rating.toDouble(),
+                image: AppImages.doctorTwo,
+                isFavorite: false,
+              ),
+              const Gap(30),
+              MainButton(
+                  borderRadius: BorderRadiusGeometry.circular(5),
+                  text: 'Book Now',
+                  onPressed: () {
+                    pushTo(context: context, path: Routes.booking);
                   }),
               const Gap(20),
               Container(

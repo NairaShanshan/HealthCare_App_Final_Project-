@@ -13,4 +13,12 @@ class DoctorEntity {
       required this.specialization,
       required this.imagePath,
       required this.price});
+  final String price;
+
+  const DoctorEntity({
+    required this.name,
+    required this.rating,
+    required this.specialization,
+    required this.price,
+  });
 }

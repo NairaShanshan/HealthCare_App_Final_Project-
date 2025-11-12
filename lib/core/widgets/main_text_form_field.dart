@@ -12,13 +12,14 @@ class MainTextFormField extends StatelessWidget {
     this.prefixIcon,
     this.onSaved,
     this.isPassword = false,
-    this.validator, this.borderColor, this.suffixIconColor, this.controller,
+    this.validator, this.borderColor, this.suffixIconColor, this.controller, this.onchange,
   });
   final String hintText;
   final TextInputType textInputType;
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final void Function(String?)? onSaved;
+  final  void Function(String)? onchange;
   final bool isPassword;
   final String? Function(String?)? validator;
   final Color? borderColor;
@@ -28,6 +29,7 @@ class MainTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: onchange,
       controller: controller,
       obscureText: isPassword,
       onSaved: onSaved,

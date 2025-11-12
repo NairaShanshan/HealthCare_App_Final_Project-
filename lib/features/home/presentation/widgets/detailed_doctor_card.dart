@@ -145,26 +145,43 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:healthcare_app/core/constants/app_images.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gap/gap.dart';
 import 'package:healthcare_app/core/helper/create_rating_row.dart';
 import 'package:healthcare_app/core/routes/navigation.dart';
 import 'package:healthcare_app/core/routes/routes.dart';
 import 'package:healthcare_app/core/utils/app_colors.dart';
 import 'package:healthcare_app/core/widgets/main_button.dart';
 import 'package:healthcare_app/features/home/domain/enitites/doctor_entity.dart';
+import 'package:healthcare_app/features/home/data/models/doctor_model.dart';
+import 'package:healthcare_app/features/home/domain/enitites/doctor_entity.dart';
+import 'package:healthcare_app/core/cubit/favourite_doctors_cubit/favourite_doctors_cubit.dart';
 
-class DetailedDoctorCard extends StatelessWidget {
+class DetailedDoctorCard extends StatefulWidget {
   final String imagePath;
   final String doctorName;
   final String specialty;
   final double rating;
+  final DoctorEntity doctorEntity;
 
   const DetailedDoctorCard({
     super.key,
     required this.imagePath,
-    required this.doctorName,
-    required this.specialty,
-    required this.rating,
+    required this.doctorEntity,
   });
+
+  @override
+  State<DetailedDoctorCard> createState() => _DetailedDoctorCardState();
+}
+
+class _DetailedDoctorCardState extends State<DetailedDoctorCard> {
+  late FavouriteDoctorsCubit cubit;
+
+  @override
+  void initState() {
+    super.initState();
+    cubit = context.read<FavouriteDoctorsCubit>();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -178,10 +195,11 @@ class DetailedDoctorCard extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // 🖼️ Doctor image
           ClipRRect(
             borderRadius: BorderRadius.circular(6),
             child: Image.asset(
-              imagePath,
+              widget.imagePath,
               width: 70,
               height: 70,
               fit: BoxFit.cover,
@@ -189,12 +207,14 @@ class DetailedDoctorCard extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 8),
+
+          // 📄 Doctor info
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  doctorName,
+                  widget.doctorEntity.name,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
@@ -205,7 +225,7 @@ class DetailedDoctorCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 6),
                 Text(
-                  specialty,
+                  widget.doctorEntity.specialization,
                   style: const TextStyle(
                     fontSize: 13,
                     color: AppColors.greyColor,
@@ -220,6 +240,9 @@ class DetailedDoctorCard extends StatelessWidget {
                         context: context,
                         rating: rating,
                       ),
+                    createRatingRow(
+                      context: context,
+                      rating: widget.doctorEntity.rating,
                     ),
                   ],
                 ),
@@ -256,6 +279,36 @@ class DetailedDoctorCard extends StatelessWidget {
               color: AppColors.primaryColor,
               size: 24,
             ),
+                      path: Routes.doctorScreen,
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+
+          StreamBuilder<bool>(
+            stream: cubit.isDoctorFavouriteStream(widget.doctorEntity.name),
+            builder: (context, snapshot) {
+              final isFavourite = snapshot.data ?? false;
+
+              return GestureDetector(
+                onTap: () async {
+                  if (isFavourite) {
+                    await cubit.removeFromFavourites(widget.doctorEntity.name);
+                  } else {
+                    await cubit.addFavouriteDoctors(
+                      data: DoctorModel.fromEntity(widget.doctorEntity).toMap(),
+                    );
+                  }
+                },
+                child: Icon(
+                  isFavourite ? Icons.favorite : Icons.favorite_border,
+                  color: AppColors.primaryColor,
+                  size: 24,
+                ),
+              );
+            },
           ),
         ],
       ),
