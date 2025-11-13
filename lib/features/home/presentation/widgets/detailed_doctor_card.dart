@@ -99,9 +99,15 @@ class _DetailedDoctorCardState extends State<DetailedDoctorCard> {
                   text: 'Book Now',
                   onPressed: () {
                     pushTo(
-                      context: context,
-                      path: Routes.doctorScreen,
-                    );
+                        context: context,
+                        path: Routes.doctorScreen,
+                        extra: DoctorEntity(
+                            id: widget.doctorEntity.id,
+                            imagePath: widget.doctorEntity.imagePath,
+                            name: widget.doctorEntity.name,
+                            rating: widget.doctorEntity.rating,
+                            specialization: widget.doctorEntity.specialization,
+                            price: widget.doctorEntity.price));
                   },
                 ),
               ],
