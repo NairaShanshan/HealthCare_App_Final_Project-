@@ -34,13 +34,20 @@ class _SearchListState extends State<SearchList> {
             : ListView.separated(
                 itemBuilder: (context, index) {
                   final doc = snapshot.data!.docs[index];
+
                   return DetailedDoctorCard(
-                    doctorEntity: DoctorModel.fromJson(
-                      doc.data() as Map<String, dynamic>,
-                      doc.id,
-                    ).toEntity(),
+                    doctorEntity:
+                        DoctorModel.fromJson(doc.data() as Map<String, dynamic>)
+                            .toEntity(),
                     imagePath: AppImages.doctorOne,
                   );
+                  // return DetailedDoctorCard(
+                  //   doctorEntity: DoctorModel.fromJson(
+                  //     doc.data() as Map<String, dynamic>,
+                  //     doc.id,
+                  //   ).toEntity(),
+                  //   imagePath: AppImages.doctorOne,
+                  // );
                 },
                 separatorBuilder: (context, index) => const Gap(10),
                 itemCount: snapshot.data!.docs.length);

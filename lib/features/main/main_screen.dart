@@ -8,31 +8,40 @@ import '../home/presentation/pages/home_screen.dart';
 import '../profile/presentation/pages/profile_screen.dart';
 
 class MainAppScreen extends StatefulWidget {
-  const MainAppScreen({super.key, this.initialIndex, required this.doctor});
+  const MainAppScreen({super.key, this.initialIndex});
   final int? initialIndex;
-  final DoctorEntity doctor;
 
   @override
   State<MainAppScreen> createState() => _MainAppScreenState();
 }
 
 class _MainAppScreenState extends State<MainAppScreen> {
-  late int _currentIndex;
-  late List<Widget> pages;
+  int _currentIndex = 0;
 
+  List<Widget> pages = [
+    HomeScreen(),
+    FavouriteScreen(),
+    DoctorScreen(
+      doctorEntity: DoctorEntity(
+        name: 'name',
+        rating: 5,
+        specialization: 'specialization',
+        price: '4',
+      ),
+      imagePath: '',
+    ),
+    ProfileScreen(),
+  ];
+
+  // @override
+  // void didUpdateWidget(covariant MainAppScreen oldWidget) {
+  //   _currentIndex = widget.initialIndex ?? _currentIndex;
+  //   super.didUpdateWidget(oldWidget);
+  // }
   @override
   void initState() {
     super.initState();
     _currentIndex = widget.initialIndex ?? 0;
-
-    pages = [
-      const HomeScreen(),
-      const FavouriteScreen(),
-      DoctorScreen(
-        doctorEntity: widget.doctor,
-      ),
-      const ProfileScreen(),
-    ];
   }
 
   @override

@@ -66,23 +66,9 @@ class Routes {
       ),
       GoRoute(
         path: main,
-        builder: (context, state) {
-          final data = state.extra as Map<String, dynamic>?;
-
-          return MainAppScreen(
-            doctor: (data != null && data['doctor'] != null)
-                ? data['doctor'] as DoctorEntity
-                : const DoctorEntity(
-                    name: 'unknown',
-                    rating: 3.0,
-                    specialization: '',
-                    imagePath: AppImages.doc7,
-                    price: "330",
-                    id: '',
-                  ),
-            initialIndex: data?['initialIndex'] as int? ?? 0,
-          );
-        },
+        builder: (context, state) => MainAppScreen(
+          initialIndex: state.extra as int?,
+        ),
       ),
       GoRoute(
         path: editProfile,
@@ -127,6 +113,7 @@ class Routes {
         path: doctorScreen,
         builder: (context, state) => DoctorScreen(
           doctorEntity: state.extra as DoctorEntity,
+          imagePath: AppImages.doc2,
         ),
       ),
       GoRoute(
