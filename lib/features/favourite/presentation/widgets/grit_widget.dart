@@ -50,6 +50,7 @@ class GridContainerWidget extends StatelessWidget {
           const Gap(10),
           Text(
             doctorName,
+            textAlign: TextAlign.center,
             style: TextStyles.textStyles18,
           ),
           const Gap(5),

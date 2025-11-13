@@ -10,8 +10,9 @@ class HealthArticalView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: 10,
-      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
+      physics:const  NeverScrollableScrollPhysics(),
+      itemCount: 5,
       itemBuilder: (context, index) => const Padding(
         padding: EdgeInsets.only(bottom: 16),
         child: ArticleCard(

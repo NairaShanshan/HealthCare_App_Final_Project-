@@ -7,7 +7,6 @@ import 'package:healthcare_app/features/home/domain/enitites/doctor_entity.dart'
 import 'package:healthcare_app/features/home/presentation/cubits/popular_doctors_cubit/popular_doctors_cubit.dart';
 import 'package:healthcare_app/features/home/presentation/cubits/popular_doctors_cubit/popular_doctors_state.dart';
 import 'package:healthcare_app/features/home/presentation/widgets/category_header.dart';
-import 'package:healthcare_app/features/home/presentation/widgets/category_items_view.dart';
 import 'package:healthcare_app/features/home/presentation/widgets/health_artical_view.dart';
 import 'package:healthcare_app/features/home/presentation/widgets/home_screen_header.dart';
 import 'package:healthcare_app/features/home/presentation/widgets/popular_doctors_view_bloc_builder.dart';
@@ -109,12 +108,9 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                 onTap: () {},
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: SizedBox(
-                height: height / 2.5,
-                child: const HealthArticalView(),
-              ),
+           const  Padding(
+              padding:  EdgeInsets.symmetric(horizontal: 16.0),
+              child:  HealthArticalView(),
             ),
           ],
         ),
