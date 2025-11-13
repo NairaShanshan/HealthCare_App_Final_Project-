@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:healthcare_app/core/constants/app_images.dart';
 import 'package:healthcare_app/core/routes/navigation.dart';
 import 'package:healthcare_app/core/routes/routes.dart';
 import 'package:healthcare_app/core/utils/app_colors.dart';
@@ -14,11 +13,9 @@ class DoctorScreen extends StatelessWidget {
   const DoctorScreen({
     super.key,
     required this.doctorEntity,
-    required this.imagePath,
   });
 
   final DoctorEntity doctorEntity;
-  final String imagePath;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +35,7 @@ class DoctorScreen extends StatelessWidget {
                 specialty: doctorEntity.specialization,
                 price: '\$${doctorEntity.price}',
                 rating: doctorEntity.rating.toDouble(),
-                image: AppImages.doctorTwo,
+                image: doctorEntity.imagePath,
                 isFavorite: false,
               ),
               const Gap(30),
@@ -46,7 +43,16 @@ class DoctorScreen extends StatelessWidget {
                   borderRadius: BorderRadiusGeometry.circular(5),
                   text: 'Book Now',
                   onPressed: () {
-                    pushTo(context: context, path: Routes.booking);
+                    pushTo(
+                        context: context,
+                        path: Routes.booking,
+                        extra: DoctorEntity(
+                            id: doctorEntity.id,
+                            imagePath: doctorEntity.imagePath,
+                            name: doctorEntity.name,
+                            rating: doctorEntity.rating,
+                            specialization: doctorEntity.specialization,
+                            price: doctorEntity.price));
                   }),
               const Gap(20),
               Container(

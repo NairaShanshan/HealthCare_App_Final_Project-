@@ -5,7 +5,6 @@ import 'package:healthcare_app/core/services/doctor_services.dart';
 import 'package:healthcare_app/core/utils/app_colors.dart';
 import 'package:healthcare_app/features/home/data/models/doctor_model.dart';
 
-
 import '../../../core/constants/app_images.dart';
 import '../../home/presentation/widgets/detailed_doctor_card.dart';
 
@@ -36,9 +35,10 @@ class _SearchListState extends State<SearchList> {
                 itemBuilder: (context, index) {
                   final doc = snapshot.data!.docs[index];
                   return DetailedDoctorCard(
-                    doctorEntity:
-                        DoctorModel.fromJson(doc.data() as Map<String, dynamic>)
-                            .toEntity(),
+                    doctorEntity: DoctorModel.fromJson(
+                      doc.data() as Map<String, dynamic>,
+                      doc.id,
+                    ).toEntity(),
                     imagePath: AppImages.doctorOne,
                   );
                 },
