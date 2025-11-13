@@ -18,10 +18,12 @@ class DoctorsRepositoryImpl extends DoctorsRepository {
       var data = await remoteService.getData(path: RemotePaths.getPopularDoctor)
           as List<Map<String, dynamic>>;
       print('docotrs_repository_impl $data');
-      List<DoctorModel> result = data.map((e) {
-        final id = e['id'];
-        return DoctorModel.fromJson(e, id);
-      }).toList();
+      // List<DoctorModel> result = data.map((e) {
+      //   final id = e['id'];
+      //   return DoctorModel.fromJson(e, id);
+      // }).toList();
+      List<DoctorModel> result =
+          data.map((e) => DoctorModel.fromJson(e)).toList();
       print('docotrs_repository_impl result $result');
       List<DoctorEntity> popularDoctor =
           result.map((e) => e.toEntity()).toList();
@@ -39,10 +41,12 @@ class DoctorsRepositoryImpl extends DoctorsRepository {
       var data = await remoteService.getData(
           path: RemotePaths.getFavouriteDoctor) as List<Map<String, dynamic>>;
       print('docotrs_repository_impl $data');
-      List<DoctorModel> result = data.map((e) {
-        final id = e['id'];
-        return DoctorModel.fromJson(e, id);
-      }).toList();
+      // List<DoctorModel> result = data.map((e) {
+      //   final id = e['id'];
+      //   return DoctorModel.fromJson(e, id);
+      // }).toList();
+      List<DoctorModel> result =
+          data.map((e) => DoctorModel.fromJson(e)).toList();
       print('docotrs_repository_impl result $result');
       List<DoctorEntity> favouriteDoctor =
           result.map((e) => e.toEntity()).toList();
