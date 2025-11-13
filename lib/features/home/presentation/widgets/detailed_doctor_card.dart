@@ -35,109 +35,115 @@ class _DetailedDoctorCardState extends State<DetailedDoctorCard> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        color: AppColors.backgroundColor,
-        borderRadius: BorderRadius.circular(6),
-        border: Border.all(color: AppColors.greyColor.withValues(alpha: .2)),
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // 🖼️ Doctor image
-          ClipRRect(
-            borderRadius: BorderRadius.circular(6),
-            child: Image.asset(
-              widget.imagePath,
-              width: 70,
-              height: 70,
-              fit: BoxFit.cover,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 6),
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          color: AppColors.backgroundColor,
+          borderRadius: BorderRadius.circular(6),
+          border: Border.all(color: AppColors.greyColor.withValues(alpha: .2)),
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // 🖼️ Doctor image
+            ClipRRect(
+              borderRadius: BorderRadius.circular(6),
+              child: Image.asset(
+                widget.imagePath,
+                width: 70,
+                height: 70,
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
 
-          const SizedBox(width: 8),
+            const SizedBox(width: 8),
 
-          // 📄 Doctor info
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  widget.doctorEntity.name,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black87,
-                  ),
-                ),
-                const SizedBox(height: 6),
-                Text(
-                  widget.doctorEntity.specialization,
-                  style: const TextStyle(
-                    fontSize: 13,
-                    color: AppColors.greyColor,
-                  ),
-                ),
-                const Gap(5),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    createRatingRow(
-                      context: context,
-                      rating: widget.doctorEntity.rating,
+            // 📄 Doctor info
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    widget.doctorEntity.name,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black87,
                     ),
-                  ],
-                ),
-                const Gap(10),
-                MainButton(
-                  borderRadius: BorderRadius.circular(3),
-                  width: 150,
-                  height: 33,
-                  text: 'Book Now',
-                  onPressed: () {
-                    pushTo(
+                  ),
+                  const SizedBox(height: 6),
+                  Text(
+                    widget.doctorEntity.specialization,
+                    style: const TextStyle(
+                      fontSize: 13,
+                      color: AppColors.greyColor,
+                    ),
+                  ),
+                  const Gap(5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      createRatingRow(
                         context: context,
-                        path: Routes.doctorScreen,
-                        extra: DoctorEntity(
-                            id: widget.doctorEntity.id,
-                            imagePath: widget.doctorEntity.imagePath,
-                            name: widget.doctorEntity.name,
-                            rating: widget.doctorEntity.rating,
-                            specialization: widget.doctorEntity.specialization,
-                            price: widget.doctorEntity.price));
-                  },
-                ),
-              ],
+                        rating: widget.doctorEntity.rating,
+                      ),
+                    ],
+                  ),
+                  const Gap(10),
+                  MainButton(
+                    borderRadius: BorderRadius.circular(3),
+                    width: 150,
+                    height: 33,
+                    text: 'Book Now',
+                    onPressed: () {
+                      pushTo(
+                          context: context,
+                          path: Routes.doctorScreen,
+                          extra: DoctorEntity(
+                              id: widget.doctorEntity.id,
+                              imagePath: widget.doctorEntity.imagePath,
+                              name: widget.doctorEntity.name,
+                              rating: widget.doctorEntity.rating,
+                              specialization:
+                                  widget.doctorEntity.specialization,
+                              price: widget.doctorEntity.price));
+                    },
+                  ),
+                ],
+              ),
             ),
-          ),
 
-          StreamBuilder<bool>(
-            stream: cubit.isDoctorFavouriteStream(widget.doctorEntity.name),
-            builder: (context, snapshot) {
-              final isFavourite = snapshot.data ?? false;
+            StreamBuilder<bool>(
+              stream: cubit.isDoctorFavouriteStream(widget.doctorEntity.name),
+              builder: (context, snapshot) {
+                final isFavourite = snapshot.data ?? false;
 
-              return GestureDetector(
-                onTap: () async {
-                  if (isFavourite) {
-                    await cubit.removeFromFavourites(widget.doctorEntity.name);
-                  } else {
-                    await cubit.addFavouriteDoctors(
-                      data: DoctorModel.fromEntity(widget.doctorEntity).toMap(),
-                    );
-                  }
-                },
-                child: Icon(
-                  isFavourite ? Icons.favorite : Icons.favorite_border,
-                  color: AppColors.primaryColor,
-                  size: 24,
-                ),
-              );
-            },
-          ),
-        ],
+                return GestureDetector(
+                  onTap: () async {
+                    if (isFavourite) {
+                      await cubit
+                          .removeFromFavourites(widget.doctorEntity.name);
+                    } else {
+                      await cubit.addFavouriteDoctors(
+                        data:
+                            DoctorModel.fromEntity(widget.doctorEntity).toMap(),
+                      );
+                    }
+                  },
+                  child: Icon(
+                    isFavourite ? Icons.favorite : Icons.favorite_border,
+                    color: AppColors.primaryColor,
+                    size: 24,
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
