@@ -1,4 +1,4 @@
-import 'package:healthcare_app/core/constants/doctors_images.dart';
+
 import 'package:healthcare_app/features/home/domain/enitites/doctor_entity.dart';
 
 // class DoctorModel extends DoctorEntity {
