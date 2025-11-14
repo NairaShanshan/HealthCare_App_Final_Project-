@@ -67,7 +67,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                     itemCount: state.favouriteDoctors.length,
                     itemBuilder: (context, index) {
                       return GridContainerWidget(
-                        imagePath: AppImages.doctorOne,
+                        imagePath: state.favouriteDoctors[index].imagePath,
                         doctorName: state.favouriteDoctors[index].name,
                         specialty: state.favouriteDoctors[index].specialization,
                       );

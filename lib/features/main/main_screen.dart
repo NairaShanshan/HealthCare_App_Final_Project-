@@ -27,6 +27,8 @@ class _MainAppScreenState extends State<MainAppScreen> {
         rating: 5,
         specialization: 'specialization',
         price: '4',
+        id: '',
+        imagePath: '',
       ),
       imagePath: '',
     ),

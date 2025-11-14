@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:healthcare_app/core/constants/app_images.dart';
-import 'package:healthcare_app/core/constants/doctors_images.dart';
 import 'package:healthcare_app/core/routes/navigation.dart';
 import 'package:healthcare_app/core/services/firestore_service.dart';
 import 'package:healthcare_app/core/utils/text_styles.dart';
@@ -43,23 +42,14 @@ class SpecializationSearchScreen extends StatelessWidget {
 
                       final doctorMap =
                           Map<String, dynamic>.from(docData as Map);
-                      //   final id = snapshot.data!.docs[index].id;
-                      // DoctorModel doctor = DoctorModel.fromJson(doctorMap, id);
-                      DoctorModel doctor = DoctorModel.fromJson(
-                        doctorMap,
-                      );
+                      final id = snapshot.data!.docs[index].id;
+                      DoctorModel doctor = DoctorModel.fromJson(doctorMap, id);
                       if (doctor.specialization == '' ||
                           doctor.specialization == null) {
                         return const SizedBox();
                       }
 
-                      return DetailedDoctorCard(
-                        doctorEntity: doctor,
-                        imagePath: AppImages.doc2,
-                        //  imagePath: DoctorImages.getDoctorImage(id),
-
-                        // doctorEntity: doctor,
-                      );
+                      return DetailedDoctorCard(doctorEntity: doctor);
                     },
                   ),
                 );

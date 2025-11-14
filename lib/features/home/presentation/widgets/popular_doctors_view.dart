@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:healthcare_app/core/constants/app_images.dart';
 import 'package:healthcare_app/features/home/domain/enitites/doctor_entity.dart';
 import 'package:healthcare_app/features/home/presentation/widgets/doctor_card.dart';
 
@@ -19,7 +18,6 @@ class PopularDoctorsView extends StatelessWidget {
       itemBuilder: (context, index) => Padding(
         padding: const EdgeInsets.only(right: 16),
         child: DoctorCard(
-          imagePath: AppImages.doctorOne,
           doctorEntity: doctors[index],
         ),
       ),

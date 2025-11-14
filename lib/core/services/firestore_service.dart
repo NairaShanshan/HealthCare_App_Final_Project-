@@ -26,7 +26,10 @@ class FirestoreService implements RemoteService {
     if (id != null) {
       var result = await firebaseFirestore.collection(path).doc(id).get();
       log(result.data()!.toString());
-      return result.data()!;
+      return {
+        ...result.data()!,
+        "id": result.id,
+      };
     } else {
       Query<Map<String, dynamic>> result = firebaseFirestore.collection(path);
       if (query != null) {
@@ -36,7 +39,14 @@ class FirestoreService implements RemoteService {
         }
       }
       var data = await result.get();
-      return data.docs.map((e) => e.data()).toList();
+
+      return data.docs.map((doc) {
+        final map = doc.data();
+        return {
+          ...map,
+          "id": doc.id,
+        };
+      }).toList();
     }
   }
 
