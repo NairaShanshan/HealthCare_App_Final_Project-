@@ -6,11 +6,9 @@ import 'package:healthcare_app/core/utils/app_colors.dart';
 import 'package:healthcare_app/features/home/domain/enitites/doctor_entity.dart';
 
 class DoctorCard extends StatelessWidget {
-  final String imagePath;
   final DoctorEntity doctorEntity;
   const DoctorCard({
     super.key,
-    required this.imagePath,
     required this.doctorEntity,
   });
 
@@ -43,7 +41,7 @@ class DoctorCard extends StatelessWidget {
                 topRight: Radius.circular(20),
               ),
               child: Image.asset(
-                imagePath,
+                doctorEntity.imagePath,
                 width: double.infinity,
                 height: height / 5.5,
                 fit: BoxFit.cover,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
-import 'package:healthcare_app/core/constants/app_images.dart';
 import 'package:healthcare_app/core/helper/create_rating_row.dart';
 import 'package:healthcare_app/core/routes/navigation.dart';
 import 'package:healthcare_app/core/routes/routes.dart';
@@ -12,12 +11,12 @@ import 'package:healthcare_app/features/home/domain/enitites/doctor_entity.dart'
 import 'package:healthcare_app/core/cubit/favourite_doctors_cubit/favourite_doctors_cubit.dart';
 
 class DetailedDoctorCard extends StatefulWidget {
-  final String imagePath;
-
   final DoctorEntity doctorEntity;
 
-  const DetailedDoctorCard(
-      {super.key, required this.doctorEntity, required this.imagePath});
+  const DetailedDoctorCard({
+    super.key,
+    required this.doctorEntity,
+  });
 
   @override
   State<DetailedDoctorCard> createState() => _DetailedDoctorCardState();
@@ -50,8 +49,7 @@ class _DetailedDoctorCardState extends State<DetailedDoctorCard> {
             ClipRRect(
               borderRadius: BorderRadius.circular(6),
               child: Image.asset(
-                // widget.imagePath,
-                AppImages.doc7,
+                widget.doctorEntity.imagePath,
                 width: 70,
                 height: 70,
                 fit: BoxFit.cover,
@@ -104,9 +102,8 @@ class _DetailedDoctorCardState extends State<DetailedDoctorCard> {
                           context: context,
                           path: Routes.doctorScreen,
                           extra: DoctorEntity(
-                            // id: widget.doctorEntity.id,
-                            // imagePath: widget.doctorEntity.imagePath,
-
+                            id: widget.doctorEntity.id,
+                            imagePath: widget.doctorEntity.imagePath,
                             name: widget.doctorEntity.name,
                             rating: widget.doctorEntity.rating,
                             specialization: widget.doctorEntity.specialization,

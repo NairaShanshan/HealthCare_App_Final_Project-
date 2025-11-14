@@ -1,7 +1,5 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:healthcare_app/core/constants/app_images.dart';
 import 'package:healthcare_app/features/auth/presentation/widgets/main_back_button.dart';
 import 'package:healthcare_app/features/auth/presentation/widgets/main_scaffold.dart';
 import 'package:healthcare_app/features/home/domain/enitites/doctor_entity.dart';
@@ -48,7 +46,6 @@ class DetailedScreen extends StatelessWidget {
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 16.0),
                       child: DetailedDoctorCard(
-                        imagePath: AppImages.doctorOne,
                         doctorEntity: popularDoctor[index],
                       ),
                     );
