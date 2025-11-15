@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:healthcare_app/features/doctor/page/doctor_screen.dart';
 import 'package:healthcare_app/features/favourite/presentation/pages/favourite_screen.dart';
-import 'package:healthcare_app/features/home/domain/enitites/doctor_entity.dart';
 import 'package:healthcare_app/features/home/presentation/widgets/custom_bottom_nav_bar.dart';
 
+import '../appointment/pages/appointment_screen.dart';
 import '../home/presentation/pages/home_screen.dart';
 import '../profile/presentation/pages/profile_screen.dart';
 
@@ -21,17 +20,7 @@ class _MainAppScreenState extends State<MainAppScreen> {
   List<Widget> pages = [
     HomeScreen(),
     FavouriteScreen(),
-    DoctorScreen(
-      doctorEntity: DoctorEntity(
-        name: 'name',
-        rating: 5,
-        specialization: 'specialization',
-        price: '4',
-        id: '',
-        imagePath: '',
-      ),
-      imagePath: '',
-    ),
+    MyAppointmentsScreen() ,
     ProfileScreen(),
   ];
 

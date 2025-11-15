@@ -130,12 +130,18 @@ class _AppointmentInfoScreenState extends State<AppointmentInfoScreen> {
                 child: ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      nameController.clear();
-                      phoneController.clear();
+
                       pushTo(
                           context: context,
                           path: Routes.selectDate,
-                          extra: widget.doctorEntity);
+                          extra: {
+                            'doctor': widget.doctorEntity,
+                            'patientName': nameController.text,
+                            'phone': phoneController.text,
+                            'patientRelation': patients[selectedPatient]['label'],
+                          },);
+                      nameController.clear();
+                      phoneController.clear();
                     }
                   },
                   style: ElevatedButton.styleFrom(

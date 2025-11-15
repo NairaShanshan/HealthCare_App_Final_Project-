@@ -46,16 +46,16 @@ class _MyAppointmentListState extends State<MyAppointmentList> {
     );
   }
 
-  bool _compareDate(DateTime date) {
-    DateTime now = DateTime.now();
-    if (now.year == date.year &&
-        now.month == date.month &&
-        now.day == date.day) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  // bool _compareDate(DateTime date) {
+  //   DateTime now = DateTime.now();
+  //   if (now.year == date.year &&
+  //       now.month == date.month &&
+  //       now.day == date.day) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +105,9 @@ class _MyAppointmentListState extends State<MyAppointmentList> {
                       collapsedBackgroundColor: AppColors.accentColor,
                       title: Text(
                         'DR ${model.doctorName}',
-                        style: TextStyles.textStyles16,
+                        style: TextStyles.textStyles16.copyWith(
+                          fontWeight: FontWeight.bold
+                        ),
                       ),
                       subtitle: Padding(
                         padding: const EdgeInsets.only(top: 5, left: 5),
@@ -123,16 +125,16 @@ class _MyAppointmentListState extends State<MyAppointmentList> {
                                   DateFormat.yMMMMd(
                                     'en',
                                   ).format(model.date).toString(),
-                                  style: TextStyles.textStyles18,
+                                  style: TextStyles.textStyles16,
                                 ),
                                 const SizedBox(width: 30),
-                                Text(
-                                  _compareDate(model.date) ? "Today" : "",
-                                  style: TextStyles.textStyles20.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.green,
-                                  ),
-                                ),
+                                // Text(
+                                //   _compareDate(model.date) ? "Today" : "",
+                                //   style: TextStyles.textStyles20.copyWith(
+                                //     fontWeight: FontWeight.bold,
+                                //     color: Colors.green,
+                                //   ),
+                                // ),
                               ],
                             ),
                             Row(
@@ -147,7 +149,7 @@ class _MyAppointmentListState extends State<MyAppointmentList> {
                                   DateFormat.jm(
                                     'en',
                                   ).format(model.date).toString(),
-                                  style: TextStyles.textStyles20,
+                                  style: TextStyles.textStyles16,
                                 ),
                               ],
                             ),
@@ -166,21 +168,8 @@ class _MyAppointmentListState extends State<MyAppointmentList> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'Patient Name ${model.name}',
-                                style: TextStyles.textStyles18,
-                              ),
-                              const SizedBox(height: 10),
-                              Row(
-                                children: [
-                                  const Icon(
-                                    Icons.location_on_rounded,
-                                    color: AppColors.primaryColor,
-                                    size: 16,
-                                  ),
-                                  const SizedBox(width: 10),
-                                  Text(model.location,
-                                      style: TextStyles.textStyles18),
-                                ],
+                                'Patient Name : ${model.name}',
+                                style: TextStyles.textStyles16,
                               ),
                               const SizedBox(height: 10),
                               SizedBox(
