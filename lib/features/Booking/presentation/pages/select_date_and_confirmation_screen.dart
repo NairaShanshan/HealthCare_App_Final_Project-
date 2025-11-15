@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:healthcare_app/core/routes/navigation.dart';
 import 'package:healthcare_app/features/Booking/presentation/widgets/available_time_selector.dart';
 import 'package:healthcare_app/features/Booking/presentation/widgets/confirmation_dialog.dart';
 import 'package:healthcare_app/features/Booking/presentation/widgets/date_picker_card.dart';
@@ -7,8 +9,14 @@ import 'package:healthcare_app/features/Booking/presentation/widgets/primary_but
 import 'package:healthcare_app/features/Booking/presentation/widgets/reminder_time_selector.dart';
 import 'package:healthcare_app/features/home/domain/enitites/doctor_entity.dart';
 
+import '../../../../core/services/doctor_services.dart';
+import '../../../appointment/data/models/appointment_model.dart';
+import 'package:intl/intl.dart';
+
 class SelectDateScreen extends StatefulWidget {
-  final DoctorEntity doctorEntity;
+  final DoctorEntity doctorEntity;  final String patientName;
+  final String phone;
+  final String patientRelation;
   final DateTime? initialDate;
   final String? initialTime;
 
@@ -16,7 +24,7 @@ class SelectDateScreen extends StatefulWidget {
     super.key,
     this.initialDate,
     this.initialTime,
-    required this.doctorEntity,
+    required this.doctorEntity, required this.patientName, required this.phone, required this.patientRelation,
   });
 
   @override
@@ -26,6 +34,8 @@ class SelectDateScreen extends StatefulWidget {
 class _SelectDateScreenState extends State<SelectDateScreen> {
   late DateTime selectedDate;
   late String selectedTime;
+  late String patientName;
+  late  String phone;
   DateTime _focusedDay = DateTime.now();
   DateTime? _selectedDay;
   int? selectedTimeIndex;
@@ -56,6 +66,37 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
     super.initState();
     selectedDate = widget.initialDate ?? DateTime.now();
     selectedTime = widget.initialTime ?? '';
+    patientName = widget.patientName;
+    phone = widget.phone;
+  }
+
+  void showAlertDialog(BuildContext context, String docID) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog.adaptive(
+          title: const Text("حذف الحجز"),
+          content: const Text("هل متاكد من حذف هذا الحجز ؟"),
+          actions: [
+            TextButton(
+              child: const Text("لا"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              child: const Text("نعم"),
+              onPressed: () {
+                DoctorService.deleteAppointment(docID).then((_) {
+                  pop(context) ;
+                  setState(() {});
+                });
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -117,19 +158,29 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
                       text: 'Confirm',
                       onPressed: selectedTimeIndex == null
                           ? null
-                          : () {
-                              showDialog(
-                                context: context,
-                                barrierDismissible: false,
-                                builder: (context) => ConfirmationDialog(
-                                  doctorName: widget.doctorEntity.name,
-                                  speciality:
-                                      widget.doctorEntity.specialization,
-                                  date: _selectedDay ?? _focusedDay,
-                                  time: availableTimes[selectedTimeIndex!],
-                                ),
-                              );
-                            },
+                          : () async {
+                        // Create appointment
+                        await _createAppointment(
+                          date: _selectedDay ?? _focusedDay,
+                          time: availableTimes[selectedTimeIndex!],
+                          patientName: patientName,
+                          phone: phone,
+                        );
+
+
+                        // Show Confirmation Dialog
+
+                        showDialog(
+                          context: context,
+                          barrierDismissible: false,
+                          builder: (context) => ConfirmationDialog(
+                            doctorName: widget.doctorEntity.name,
+                            speciality: widget.doctorEntity.specialization,
+                            date: _selectedDay ?? _focusedDay,
+                            time: availableTimes[selectedTimeIndex!],
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),
@@ -140,4 +191,41 @@ class _SelectDateScreenState extends State<SelectDateScreen> {
       ),
     );
   }
+
+
+
+  Future<void> _createAppointment({
+    required DateTime date,
+    required String time,
+    required String patientName,
+    required String phone,
+  }) async {
+    try {
+      // Format the date as yyyy-MM-dd
+      final dateString = DateFormat('yyyy-MM-dd').format(date);
+
+      // Combine date and time
+      final combinedString = "$dateString $time"; // e.g. "2025-12-24 09:00 AM"
+
+      // Parse into DateTime
+      final parsedDateTime = DateFormat("yyyy-MM-dd hh:mm a").parse(combinedString);
+
+      // Create model with parsed DateTime
+      var appointmentData = AppointmentModel(
+        patientID: FirebaseAuth.instance.currentUser?.uid ?? "",
+        doctorID: widget.doctorEntity.id,
+        name: widget.patientName,
+        doctorName: widget.doctorEntity.name,
+        phone: widget.phone,
+        date: parsedDateTime, // استخدمي هنا الـ DateTime اللي اتعمله parse صح
+        isComplete: false,
+      );
+
+      await DoctorService.createAppointment(appointmentData);
+      print("Appointment created successfully at $parsedDateTime");
+    } catch (e) {
+      print("Error parsing appointment date: $e");
+    }
+  }
 }
+

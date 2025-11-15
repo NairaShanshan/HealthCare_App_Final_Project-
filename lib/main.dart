@@ -12,9 +12,11 @@ import 'package:healthcare_app/features/home/domain/repository/doctors_repositor
 
 import 'core/services/local/shared_pref.dart';
 import 'firebase_options.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await initializeDateFormatting('en', null);
   await SharedPref.init();
 
   await Firebase.initializeApp(

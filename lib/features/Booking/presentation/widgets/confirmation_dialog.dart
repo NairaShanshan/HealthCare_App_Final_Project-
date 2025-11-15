@@ -1,7 +1,13 @@
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:healthcare_app/core/routes/navigation.dart';
+import 'package:healthcare_app/core/routes/routes.dart';
+
 import 'package:healthcare_app/core/utils/app_colors.dart';
+
+
+
 
 class ConfirmationDialog extends StatelessWidget {
   final String doctorName;
@@ -92,8 +98,10 @@ class ConfirmationDialog extends StatelessWidget {
             const Gap(10),
             ElevatedButton(
               onPressed: () {
-                pop(context);
-                pop(context);
+                // pop(context);
+                // pop(context);
+                 pushReplacement(context, Routes.main ) ;
+
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: themeColor,
@@ -128,3 +136,6 @@ class ConfirmationDialog extends StatelessWidget {
     );
   }
 }
+
+
+

@@ -14,7 +14,7 @@ class _MyAppointmentsScreenState extends State<MyAppointmentsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('My Appointments')),
+      appBar: AppBar(title: const Text('My Appointments') , centerTitle: true,),
       body: const Padding(
         padding: EdgeInsets.all(10),
         child: MyAppointmentList(),

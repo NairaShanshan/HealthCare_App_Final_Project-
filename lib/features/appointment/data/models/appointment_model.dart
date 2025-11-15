@@ -3,9 +3,7 @@ class AppointmentModel {
   final String doctorID;
   final String name;
   final String phone;
-  final String description;
   final String doctorName;
-  final String location;
   final DateTime date;
   final bool isComplete;
   final double? rating;
@@ -15,9 +13,7 @@ class AppointmentModel {
     required this.doctorID,
     required this.name,
     required this.phone,
-    required this.description,
     required this.doctorName,
-    required this.location,
     required this.date,
     required this.isComplete,
     this.rating,
@@ -29,9 +25,7 @@ class AppointmentModel {
       doctorID: json['doctorID'],
       name: json['name'],
       phone: json['phone'],
-      description: json['description'],
       doctorName: json['doctorName'],
-      location: json['location'],
       date: DateTime.parse(json['date']),
       isComplete: json['isComplete'],
       rating: json['rating'],
@@ -44,9 +38,7 @@ class AppointmentModel {
       'doctorID': doctorID,
       'name': name,
       'phone': phone,
-      'description': description,
       'doctorName': doctorName,
-      'location': location,
       'date': date.toIso8601String(),
       'isComplete': isComplete,
       'rating': rating,

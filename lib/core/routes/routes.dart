@@ -106,9 +106,15 @@ class Routes {
       ),
       GoRoute(
           path: selectDate,
-          builder: (context, state) => SelectDateScreen(
-                doctorEntity: state.extra as DoctorEntity,
-              )),
+        builder: (context, state) {
+          final extra = state.extra as Map<String, dynamic>;
+          return SelectDateScreen(
+            doctorEntity: extra['doctor'] as DoctorEntity,
+            patientName: extra['patientName'] as String,
+            phone: extra['phone'] as String,
+            patientRelation: extra['patientRelation'] as String,
+          );
+        },),
       GoRoute(
         path: doctorScreen,
         builder: (context, state) => DoctorScreen(
