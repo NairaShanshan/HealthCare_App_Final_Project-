@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:healthcare_app/core/constants/app_images.dart';
 import 'package:healthcare_app/features/home/presentation/widgets/articale_card.dart';
+
+import '../../data/models/articles_data.dart';
 
 class HealthArticalView extends StatelessWidget {
   const HealthArticalView({
@@ -12,17 +13,16 @@ class HealthArticalView extends StatelessWidget {
     return ListView.builder(
       shrinkWrap: true,
       physics:const  NeverScrollableScrollPhysics(),
-      itemCount: 5,
-      itemBuilder: (context, index) => const Padding(
-        padding: EdgeInsets.only(bottom: 16),
-        child: ArticleCard(
-          imagePath: AppImages.doctorOne,
-          title:
-              'The 25 Healthiest Fruits You Can Eat, According to a Nutritionist',
-          date: 'Jun 10, 2023',
-          readTime: '5min read',
-        ),
-      ),
+      itemCount: articlesList.length,
+      itemBuilder: (context, index) {
+        final article = articlesList[index];
+        return Padding(
+          padding:const  EdgeInsets.only(bottom: 16),
+          child: ArticleCard(
+            article: article
+          ),
+        ) ;
+      }
     );
   }
 }
