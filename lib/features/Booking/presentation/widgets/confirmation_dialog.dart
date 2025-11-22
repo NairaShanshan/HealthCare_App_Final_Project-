@@ -98,10 +98,7 @@ class ConfirmationDialog extends StatelessWidget {
             const Gap(10),
             ElevatedButton(
               onPressed: () {
-                // pop(context);
-                // pop(context);
-                 pushReplacement(context, Routes.main ) ;
-
+               pushToBase(context, Routes.main) ;
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: themeColor,

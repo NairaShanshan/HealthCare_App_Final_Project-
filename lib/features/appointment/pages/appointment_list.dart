@@ -76,7 +76,7 @@ class _MyAppointmentListState extends State<MyAppointmentList> {
                         width: 250,
                       ),
                       const Text('No upcoming bookings',
-                          style: TextStyles.textStyles20),
+                          style: TextStyles.textStyles18),
                     ],
                   ),
                 )
