@@ -25,7 +25,7 @@ Bookings:
 -----------------------------------------------
 Profile:
 - Edit user information and log out
-
+-----------------------------------------------
 
 🩺 Doctor Profile & Booking Flow
 
@@ -52,5 +52,5 @@ This project aims to provide patients with a smooth healthcare experience—find
 ## 🎨 Figma Design
 The complete UI/UX design for the Healthcare App is available on Figma:
 
-[➡ View Figma Design] ([https://www.figma.com/your-link-here](https://www.figma.com/design/8kHjKbHZ67Wmkcdmg7jaDW/HealthCare-App-Final-Project?node-id=0-1&p=f&t=zNag8YdNAFXVEZA7-0))
+[➡ View Figma Design] (https://www.figma.com/design/8kHjKbHZ67Wmkcdmg7jaDW/HealthCare-App-Final-Project?node-id=0-1&p=f&t=zNag8YdNAFXVEZA7-0)
 
