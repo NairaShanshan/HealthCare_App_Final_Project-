@@ -39,11 +39,11 @@ Profile:
 
 🛠 Tech Stack
 
-Flutter & Dart
-Firebase Authentication
-Cloud Firestore
-Shared Preferences
-State Management (Bloc / Cubit)   
+- Flutter & Dart
+- Firebase Authentication
+- Cloud Firestore
+- Shared Preferences
+- State Management (Bloc / Cubit)   
 
 🎯 Purpose
 
@@ -54,6 +54,7 @@ The complete UI/UX design for the Healthcare App is available on Figma:
 
 [➡ View Figma Design] (https://www.figma.com/design/8kHjKbHZ67Wmkcdmg7jaDW/HealthCare-App-Final-Project?node-id=0-1&p=f&t=zNag8YdNAFXVEZA7-0)
 
+-------------------------------------------------------------------------------
 ## Project Documentation 
 [HealthCare App Pdf.pdf](https://github.com/user-attachments/files/23834902/HealthCare.App.Pdf.pdf) 
 
