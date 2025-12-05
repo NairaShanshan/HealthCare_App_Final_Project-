@@ -16,16 +16,16 @@ HealthCare solves all of these issues in one place.
 
 🔍 Key Features
 
-🔐 Login & Register (Firebase Authentication)
-🏠 Home Screen
-⭐ Popular Doctors
-🩺 Medical Specializations
-👨‍⚕️ Doctor Profile
-🗓️ Book Appointment
-📅 Upcoming & Previous Appointments
-❤️ Favorites
-📰 Medical Articles
-🎨 Smooth, clean UI/UX
+- 🔐 Login & Register (Firebase Authentication)
+- 🏠 Home Screen
+- ⭐ Popular Doctors
+- 🩺 Medical Specializations
+- 👨‍⚕️ Doctor Profile
+- 🗓️ Book Appointment
+- 📅 Upcoming & Previous Appointments
+- ❤️ Favorites
+- 📰 Medical Articles
+- 🎨 Smooth, clean UI/UX
 
 ✔ Main Screens 
 
