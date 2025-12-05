@@ -4,7 +4,7 @@ The HealthCare App is a modern and user-friendly mobile application designed to 
 It provides a seamless experience that connects patients directly with qualified doctors—without clinics, intermediaries, or complicated booking procedures.
 The app focuses on speed, clarity, and ease of use, offering real-time appointment availability, detailed doctor profiles, and a smooth booking flow from start to finish.
 
-Why HealthCare?
+⭐ Why HealthCare?
 
 Patients often struggle to:
 - Find the right medical specialist
@@ -16,16 +16,16 @@ HealthCare solves all of these issues in one place.
 
 🔍 Key Features
 
-- Login & Register (Firebase Authentication)
-- Home Screen
-- Popular Doctors
-- Medical Specializations
-- Doctor Profile
-- Book Appointment
-- Upcoming & Previous Appointments
-- Favorites
-- Medical Articles
-- Smooth, clean UI/UX
+🔐 Login & Register (Firebase Authentication)
+🏠 Home Screen
+⭐ Popular Doctors
+🩺 Medical Specializations
+👨‍⚕️ Doctor Profile
+🗓️ Book Appointment
+📅 Upcoming & Previous Appointments
+❤️ Favorites
+📰 Medical Articles
+🎨 Smooth, clean UI/UX
 
 ✔ Main Screens 
 
