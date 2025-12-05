@@ -1,4 +1,4 @@
-# healthcare_app
+# 📱 healthcare_app
 
 The HealthCare App is a modern and user-friendly mobile application designed to simplify the process of finding and booking doctors.
 It provides a seamless experience that connects patients directly with qualified doctors—without clinics, intermediaries, or complicated booking procedures.
@@ -27,33 +27,41 @@ HealthCare solves all of these issues in one place.
 - 📰 Medical Articles
 - 🎨 Smooth, clean UI/UX
 
-✔ Main Screens 
+✔ 📱 Main Screens 
 
- Home:
+ 🏠 Home:
 - Search for doctors
 - Browse medical specialties
 - View popular doctors
 - Read health-related articles
 
-Favorites:
+❤️ Favorites:
 - Save and manage favorite doctors
 
-Bookings:
+📅 Bookings:
 - View upcoming appointments, delete bookings, and see real-time updates from Firestore
 
-Profile:
+👤 Profile:
 - Edit user information and log out
+
 
 
 🩺 Doctor Profile & Booking Flow
 
-- View full doctor details
-- Start booking with a guided multi-step flow:
--    Enter patient details (self or family member)
--    Choose date using an in-app calendar
--    Select appointment time
--    Set reminder
--    Confirm booking (saved to Firestore)
+🔎 View full doctor details:
+
+- Doctor’s bio
+- Specialization
+- Experience
+- Available appointment times
+
+🧭 Booking Flow
+
+- 👤 Select patient (self or family member)
+- 📆 Choose date from in-app calendar
+- ⏰ Select available time
+- 🔔 Set reminder
+- ✅ Confirm booking (saved instantly to Firestore)
 
 
 
@@ -75,6 +83,6 @@ The complete UI/UX design for the Healthcare App is available on Figma:
 [➡ View Figma Design] (https://www.figma.com/design/8kHjKbHZ67Wmkcdmg7jaDW/HealthCare-App-Final-Project?node-id=0-1&p=f&t=zNag8YdNAFXVEZA7-0)
 
 
-## Project Documentation 
+## 📄 Project Documentation 
 [HealthCare App Pdf.pdf](https://github.com/user-attachments/files/23834902/HealthCare.App.Pdf.pdf) 
 
