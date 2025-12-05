@@ -11,12 +11,12 @@ Patients often struggle to:
 - View trusted doctor information
 - Check available appointment times quickly
 - Manage upcoming and previous bookings
-- Access reliable medical content
+- Access reliable medical content    
 HealthCare solves all of these issues in one place.
 
 🔍 Key Features
 
--Login & Register (Firebase Authentication)
+- Login & Register (Firebase Authentication)
 - Home Screen
 - Popular Doctors
 - Medical Specializations
@@ -34,16 +34,16 @@ HealthCare solves all of these issues in one place.
 - Browse medical specialties
 - View popular doctors
 - Read health-related articles
------------------------------------------------
+
 Favorites:
 - Save and manage favorite doctors
------------------------------------------------
+
 Bookings:
 - View upcoming appointments, delete bookings, and see real-time updates from Firestore
------------------------------------------------
+
 Profile:
 - Edit user information and log out
------------------------------------------------
+
 
 🩺 Doctor Profile & Booking Flow
 
