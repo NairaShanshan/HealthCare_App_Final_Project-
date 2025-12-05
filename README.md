@@ -1,5 +1,14 @@
 # 📱 healthcare_app
 
+![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
+![Firestore](https://img.shields.io/badge/Firestore-F5820D?style=for-the-badge&logo=firebase&logoColor=white)
+![BLoC](https://img.shields.io/badge/Cubit%2FBLoC-01579B?style=for-the-badge&logo=flutter&logoColor=white)
+![MVVM](https://img.shields.io/badge/MVVM-4CAF50?style=for-the-badge)
+![GitHub](https://img.shields.io/badge/GitHub-000000?style=for-the-badge&logo=github&logoColor=white)
+
+
 The HealthCare App is a modern and user-friendly mobile application designed to simplify the process of finding and booking doctors.
 It provides a seamless experience that connects patients directly with qualified doctors—without clinics, intermediaries, or complicated booking procedures.
 The app focuses on speed, clarity, and ease of use, offering real-time appointment availability, detailed doctor profiles, and a smooth booking flow from start to finish.
@@ -44,7 +53,7 @@ HealthCare solves all of these issues in one place.
 👤 Profile:
 - Edit user information and log out
 
-
+------------------------------------------------------------------
 
 🩺 Doctor Profile & Booking Flow
 
@@ -62,6 +71,10 @@ HealthCare solves all of these issues in one place.
 - ⏰ Select available time
 - 🔔 Set reminder
 - ✅ Confirm booking (saved instantly to Firestore)
+
+
+
+
 
 
 
