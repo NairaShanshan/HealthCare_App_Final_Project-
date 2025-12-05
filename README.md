@@ -103,6 +103,6 @@ The complete UI/UX design for the Healthcare App is available on Figma:
 ### ✨ Intro Screens
 | Splash | Onboarding |
 |--------|-----------|
-| ![](![Image](https://github.com/user-attachments/assets/940fed3e-44c6-456b-b27d-a1efef4a8d8f)) | ![](![Image](https://github.com/user-attachments/assets/647bf627-db52-4e46-a805-9f7910459eee)) | ![](![Image](https://github.com/user-attachments/assets/9bd62ecc-6d26-433d-8ec3-3b03d265214c))
+| ![Splash](https://github.com/user-attachments/assets/940fed3e-44c6-456b-b27d-a1efef4a8d8f) | ![Onboarding](https://github.com/user-attachments/assets/647bf627-db52-4e46-a805-9f7910459eee) |![Onboarding](https://github.com/user-attachments/assets/9bd62ecc-6d26-433d-8ec3-3b03d265214c)
 
 
