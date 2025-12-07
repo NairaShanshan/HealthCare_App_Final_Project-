@@ -151,8 +151,8 @@ The complete UI/UX design for the Healthcare App is available on Figma:
 ---
 
 ### 🔍 Other Screens
-| Popular Doctors | Profile Screen | Search Screen |
-|-----------------|-------- ------ |-------- ------|
+| Popular Doctors Screen | Profile Screen | Search Screen|
+|-----------------|--------|--------|
 | ![Popular Doctors](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/popularDoctors.jpg) | ![Profile](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/profile.jpg) | ![Search](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/search.jpg) |
 
 
