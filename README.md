@@ -116,14 +116,14 @@ The complete UI/UX design for the Healthcare App is available on Figma:
 ---
 
 ### 🏡 Home Screens
-| Home 1 | Home 2 | Specialization |
+| Home  | Home  | Specialization |
 |--------|--------|----------------|
 | ![Home](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/Home.jpg) | ![Home 2](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/Home2.jpg) | ![Specialization](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/Specializaion.jpg) |
 
 ---
 
 ### 🗓️ Booking Screens
-| App Screen | Step 1 | Step 2 | Step 3 |
+| Appointments Screen | Step 1 | Step 2 | Step 3 |
 |------------|--------|--------|--------|
 | ![App Screen](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/appScreen.jpg) | ![App 1](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/app_1.jpg) | ![App 2](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/app_2.jpg) | ![App 3](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/app_3.jpg) |
 
@@ -151,8 +151,8 @@ The complete UI/UX design for the Healthcare App is available on Figma:
 ---
 
 ### 🔍 Other Screens
-| Popular Doctors | Profile | Search |
-|-----------------|--------|--------|
+| Popular Doctors | Profile Screen | Search Screen |
+|-----------------|-------- ------ |-------- ------|
 | ![Popular Doctors](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/popularDoctors.jpg) | ![Profile](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/profile.jpg) | ![Search](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/search.jpg) |
 
 
