@@ -102,8 +102,57 @@ The complete UI/UX design for the Healthcare App is available on Figma:
 ## 📸 Screenshots
 
 ### ✨ Intro Screens
-| Splash | Onboarding | Onboarding
-|--------|----------- | ----------
-| ![Splash](https://github.com/user-attachments/assets/940fed3e-44c6-456b-b27d-a1efef4a8d8f) | ![Onboarding](https://github.com/user-attachments/assets/647bf627-db52-4e46-a805-9f7910459eee) |![Onboarding](https://github.com/user-attachments/assets/9bd62ecc-6d26-433d-8ec3-3b03d265214c)
+| Splash | OnBoarding 1 | OnBoarding 2 |
+|--------|--------------|--------------|
+| ![Splash](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/Splash.jpg) | ![OnBoarding 1](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/OnBoarding_1.jpg) | ![OnBoarding 2](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/OnBoarding_2.jpg) |
+
+---
+
+### 🏠 Auth Screens
+| Welcome | Sign In | Sign Up |
+|---------|--------|---------|
+| ![Welcome](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/Welcome.jpg) | ![Sign In](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/signIn.jpg) | ![Sign Up](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/signUp.jpg) |
+
+---
+
+### 🏡 Home Screens
+| Home 1 | Home 2 | Specialization |
+|--------|--------|----------------|
+| ![Home](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/Home.jpg) | ![Home 2](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/Home2.jpg) | ![Specialization](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/Specializaion.jpg) |
+
+---
+
+### 🗓️ Booking Screens
+| App Screen | Step 1 | Step 2 | Step 3 |
+|------------|--------|--------|--------|
+| ![App Screen](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/appScreen.jpg) | ![App 1](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/app_1.jpg) | ![App 2](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/app_2.jpg) | ![App 3](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/app_3.jpg) |
+
+---
+
+### 📰 Articles & Doctor Details
+| Articles | Doctor Details |
+|----------|----------------|
+| ![Articles](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/articles.jpg) | ![Doctor Details](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/doctorDetails.jpg) |
+
+---
+
+### 👤 Profile & Settings
+| Edit Profile | Favorites | Logout |
+|--------------|----------|-------|
+| ![Edit Profile](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/editProfile.jpg) | ![Favorites](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/favScreen.jpg) | ![Logout](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/logout.jpg) |
+
+---
+
+### ❌ Empty / No Data Screens
+| No Appointments | No Doctors | No Favorites |
+|-----------------|-----------|-------------|
+| ![No Appointments](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/noAppointments.jpg) | ![No Doctors](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/noDoctors.jpg) | ![No Favorites](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/noFav.jpg) |
+
+---
+
+### 🔍 Other Screens
+| Popular Doctors | Profile | Search |
+|-----------------|--------|--------|
+| ![Popular Doctors](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/popularDoctors.jpg) | ![Profile](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/profile.jpg) | ![Search](https://raw.githubusercontent.com/NairaShanshan/HealthCare_App_Final_Project-/refs/heads/main/screenshots/search.jpg) |
 
 
