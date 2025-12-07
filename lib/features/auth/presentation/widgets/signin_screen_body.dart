@@ -59,7 +59,7 @@ class _SigninScreenBodyState extends State<SigninScreenBody> {
                     height: 8,
                   ),
                   MainHeader(
-                    title: 'Sing In',
+                    title: 'Sign In',
                     onBackButtonPressed: () {
                       pop(context);
                     },

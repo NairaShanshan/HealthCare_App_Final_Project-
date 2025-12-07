@@ -81,7 +81,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                 horizontal: 16,
               ),
               child: CategorysHeader(
-                title: 'Popular Doctor',
+                title: 'Popular Doctors',
                 onTap: () {
                   pushTo(
                     context: context,
@@ -104,7 +104,7 @@ class _HomeScreenBodyState extends State<HomeScreenBody> {
                 horizontal: 16,
               ),
               child: CategorysHeader(
-                title: 'Health article',
+                title: 'Health articles',
                 onTap: () {},
               ),
             ),

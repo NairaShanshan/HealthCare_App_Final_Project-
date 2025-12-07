@@ -61,7 +61,7 @@ class _SignupScreenBodyState extends State<SignupScreenBody> {
                           height: 8,
                         ),
                         MainHeader(
-                          title: 'Sing Up',
+                          title: 'Sign Up',
                           onBackButtonPressed: () {
                             pop(context);
                           },
@@ -230,8 +230,8 @@ class _PrivacyPolicyCheckboxState extends State<PrivacyPolicyCheckbox> {
           child: Checkbox(
             value: isChecked,
             fillColor: isChecked
-                ? MaterialStateProperty.all(AppColors.primaryColor)
-                : MaterialStateProperty.all(Colors.white),
+                ? WidgetStateProperty.all(AppColors.primaryColor)
+                : WidgetStateProperty.all(Colors.white),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(6),
             ),
